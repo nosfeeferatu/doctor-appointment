@@ -67,6 +67,13 @@ const Home = () => {
           </div>
         </section>
         {/* Hero Section end */}
+        <section>
+          <div className="lg:w-[470px] mx-auto">
+            <h2 className="heading text-center">
+              Providing the best medical services
+            </h2>
+          </div>
+        </section>
       </>
     </>
   );
