@@ -24,6 +24,22 @@ const navLinks = [
 ];
 
 const Header = () => {
+  const headerRef = useRef(null);
+  const menuRef = useRef(null);
+
+  const handleStickyHeader = () => {
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("sticky__header");
+      } else {
+        headerRef.current.classList.remove("sticky__header");
+      }
+    });
+  };
+
   return (
     <header className="header flex items-center">
       <div className="container">
@@ -55,7 +71,7 @@ const Header = () => {
 
           {/* NAV RIGHT */}
           <div className="flex items-center gap-4">
-            <div>
+            <div className="hidden">
               <Link to="/">
                 <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
                   <img src={userImg} className="w-full rounded-full" alt="" />
