@@ -2,6 +2,7 @@ import React from "react";
 import heroImg01 from "../assets/images/hero-img01.png";
 import heroImg02 from "../assets/images/hero-img02.png";
 import heroImg03 from "../assets/images/hero-img03.png";
+import About from "../components/About/About";
 
 const Home = () => {
   return (
@@ -84,6 +85,10 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* About Section */}
+        <About />
+        {/* About Section End */}
       </>
     </>
   );
