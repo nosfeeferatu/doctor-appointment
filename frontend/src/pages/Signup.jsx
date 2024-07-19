@@ -19,6 +19,15 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileInputChange = async (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+  };
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+  };
+
   return (
     <section className="px-5 xl:px-0">
       <div className="max-w-[1170px] mx-auto">
@@ -36,7 +45,7 @@ const Signup = () => {
               Create an <span className="text-primaryColor">account</span>
             </h3>
 
-            <form>
+            <form onSubmit={submitHandler}>
               <div className="mb-5">
                 <input
                   type="text"
@@ -114,6 +123,7 @@ const Signup = () => {
                     type="file"
                     name="photo"
                     id="customFile"
+                    onChange={handleFileInputChange}
                     accept=".jpg,.png"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
                   />
