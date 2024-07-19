@@ -9,6 +9,7 @@ import featureImg from "../assets/images/feature-img.png";
 import About from "../components/About/About";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import ServiceList from "../components/Services/ServiceList";
 
 const Home = () => {
   return (
@@ -166,6 +167,8 @@ const Home = () => {
                 unmatched, expert health care
               </p>
             </div>
+
+            <ServiceList />
           </div>
         </section>
         {/* Services End */}
