@@ -5,9 +5,11 @@ import heroImg03 from "../assets/images/hero-img03.png";
 import icon1 from "../assets/images/icon01.png";
 import icon2 from "../assets/images/icon02.png";
 import icon3 from "../assets/images/icon03.png";
+import featureImg from "../assets/images/feature-img.png";
 import About from "../components/About/About";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import ServiceList from "../components/Services/ServiceList";
 
 const Home = () => {
   return (
@@ -165,9 +167,40 @@ const Home = () => {
                 unmatched, expert health care
               </p>
             </div>
+
+            <ServiceList />
           </div>
         </section>
         {/* Services End */}
+
+         <section>
+          <div className="container">
+            <div className="flex items-center justify-between flex-col lg:flex-row">
+              <div className="xl:w-[670px]">
+                <h2 className="heading">Get virtual treatment <br /> anytime.
+                </h2>
+
+                <ul className="pl-4">
+                  <li className="text__para">
+                    1. Schedule the appointment directly.
+                  </li>
+                  <li className="text__para">
+                    2. Search for your physician here, and contact their office.
+                  </li>
+                  <li className="text__para">
+                    3. View our physicians who are accepting new patients, use the online scheduling tool to select an apponintment time.
+                  </li>
+                </ul>
+                <Link to="/">
+                <button className="btn">Learn More</button>
+                </Link>
+              </div>
+              <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
+                <img src={featureImg} alt="" className="w-3/4" />
+              </div>
+            </div>
+          </div>
+         </section>
       </>
     </>
   );
