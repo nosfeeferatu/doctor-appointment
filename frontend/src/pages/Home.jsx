@@ -2,7 +2,12 @@ import React from "react";
 import heroImg01 from "../assets/images/hero-img01.png";
 import heroImg02 from "../assets/images/hero-img02.png";
 import heroImg03 from "../assets/images/hero-img03.png";
+import icon1 from "../assets/images/icon01.png";
+import icon2 from "../assets/images/icon02.png";
+import icon3 from "../assets/images/icon03.png";
 import About from "../components/About/About";
+import { Link } from "react-router-dom";
+import { BsArrowRight } from "react-icons/bs";
 
 const Home = () => {
   return (
@@ -81,7 +86,67 @@ const Home = () => {
 
           <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[55px]">
             <div className="py-[30px] px-5">
-              <div className="flex "></div>
+              <div className="flex items-center justify-center">
+                <img src={icon1} />
+              </div>
+              <div className="mt-[30px]">
+                <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
+                  Find a Doctor
+                </h2>
+                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
+                  World-class care for everyone. Our health system offers
+                  unmatched, expert health care. From the lab to the clinic
+                </p>
+
+                <Link
+                  to="/doctors"
+                  className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
+                >
+                  <BsArrowRight className="group_hover:text-white w-6 h-5" />
+                </Link>
+              </div>
+            </div>
+            <div className="py-[30px] px-5">
+              <div className="flex items-center justify-center">
+                <img src={icon2} />
+              </div>
+              <div className="mt-[30px]">
+                <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
+                  Find a Location
+                </h2>
+                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
+                  World-class care for every one. Our health system offers
+                  unmatched, expert health care. From the lab to the clinic
+                </p>
+
+                <Link
+                  to="/doctors"
+                  className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
+                >
+                  <BsArrowRight className="group_hover:text-white w-6 h-5" />
+                </Link>
+              </div>
+            </div>
+            <div className="py-[30px] px-5">
+              <div className="flex items-center justify-center">
+                <img src={icon3} />
+              </div>
+              <div className="mt-[30px]">
+                <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
+                  Book Appointment
+                </h2>
+                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
+                  World-class care for everyone. Our health system offers
+                  unmatched, expert health care. From the lab to the clinic
+                </p>
+
+                <Link
+                  to="/doctors"
+                  className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
+                >
+                  <BsArrowRight className="group_hover:text-white w-6 h-5" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -89,6 +154,20 @@ const Home = () => {
         {/* About Section */}
         <About />
         {/* About Section End */}
+
+        {/* Services Section */}
+        <section>
+          <div className="container">
+            <div className="xl:w-[470px] mx-auto">
+              <h2 className="heading text-center">Our medical services</h2>
+              <p className="text__para text-center">
+                World-class care for everyone. Our health systems offers
+                unmatched, expert health care
+              </p>
+            </div>
+          </div>
+        </section>
+        {/* Services End */}
       </>
     </>
   );
