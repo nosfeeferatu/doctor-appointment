@@ -2,7 +2,7 @@ import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const ServiceCard = (item, index) => {
+const ServiceCard = ({ item, index }) => {
   const { name, desc, bgColor, textColor } = item;
   return (
     <div className="py-[30px] px-3 lg:px-5">
@@ -16,12 +16,12 @@ const ServiceCard = (item, index) => {
       <div className="flex items-center justify-between mt-[30px]">
         <Link
           to="/doctors"
-          className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
+          className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] flex items-center justify-center group hover:bg-primaryColor hover:border-none"
         >
-          <BsArrowRight className="group_hover:text-white w-6 h-5" />
+          <BsArrowRight className="group-hover:text-white w-6 h-5" />
         </Link>
         <span
-          className="w-[44px] h=[44px] flex items-center justify-center text-[10px] leading-[30px] font-[600]"
+          className="w-[44px] h-[44px] flex items-center justify-center text-[18px] leading-[30px] font-[600]"
           style={{
             background: `${bgColor}`,
             color: `${textColor}`,

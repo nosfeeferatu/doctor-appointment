@@ -104,7 +104,7 @@ const Home = () => {
                   to="/doctors"
                   className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
                 >
-                  <BsArrowRight className="group_hover:text-white w-6 h-5" />
+                  <BsArrowRight className="group-hover:text-white w-6 h-5" />
                 </Link>
               </div>
             </div>
@@ -125,7 +125,7 @@ const Home = () => {
                   to="/doctors"
                   className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
                 >
-                  <BsArrowRight className="group_hover:text-white w-6 h-5" />
+                  <BsArrowRight className="group-hover:text-white w-6 h-5" />
                 </Link>
               </div>
             </div>
@@ -146,7 +146,7 @@ const Home = () => {
                   to="/doctors"
                   className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
                 >
-                  <BsArrowRight className="group_hover:text-white w-6 h-5" />
+                  <BsArrowRight className="group-hover:text-white w-6 h-5" />
                 </Link>
               </div>
             </div>
@@ -164,7 +164,7 @@ const Home = () => {
               <h2 className="heading text-center">Our medical services</h2>
               <p className="text__para text-center">
                 World-class care for everyone. Our health systems offers
-                unmatched, expert health care
+                unmatched, expert health care.
               </p>
             </div>
 
@@ -173,11 +173,12 @@ const Home = () => {
         </section>
         {/* Services End */}
 
-         <section>
+        <section>
           <div className="container">
             <div className="flex items-center justify-between flex-col lg:flex-row">
               <div className="xl:w-[670px]">
-                <h2 className="heading">Get virtual treatment <br /> anytime.
+                <h2 className="heading">
+                  Get virtual treatment <br /> anytime.
                 </h2>
 
                 <ul className="pl-4">
@@ -188,11 +189,12 @@ const Home = () => {
                     2. Search for your physician here, and contact their office.
                   </li>
                   <li className="text__para">
-                    3. View our physicians who are accepting new patients, use the online scheduling tool to select an apponintment time.
+                    3. View our physicians who are accepting new patients, use
+                    the online scheduling tool to select an apponintment time.
                   </li>
                 </ul>
                 <Link to="/">
-                <button className="btn">Learn More</button>
+                  <button className="btn">Learn More</button>
                 </Link>
               </div>
               <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
@@ -200,7 +202,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-         </section>
+        </section>
       </>
     </>
   );
