@@ -8,6 +8,7 @@ import icon3 from "../assets/images/icon03.png";
 import About from "../components/About/About";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import ServiceList from "../components/Services/ServiceList";
 
 const Home = () => {
   return (
@@ -165,6 +166,8 @@ const Home = () => {
                 unmatched, expert health care
               </p>
             </div>
+
+            <ServiceList />
           </div>
         </section>
         {/* Services End */}
