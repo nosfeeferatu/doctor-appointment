@@ -2,6 +2,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const ServiceCard = ({ item, index }) => {
+  // eslint-disable-next-line react/prop-types
   const { name, desc, bgColor, textColor } = item;
   return (
     <div className="py-[30px] px-3 lg:px-5">
