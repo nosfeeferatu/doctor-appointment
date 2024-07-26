@@ -10,20 +10,20 @@ import {
 
 const socialLinks = [
   {
-    path: "https://www.youtube.com/c/CodingWithMuhib",
-    icon: <AiFillYoutube className="group-hover: text-white w-4 h-5" />,
+    path: "https://youtu.be/ZQdQIIF1DOY?si=nOdp14P-S1J2GDTq",
+    icon: <AiFillYoutube className="group-hover: text-black w-4 h-5" />,
   },
   {
     path: "https://github.com/codingwithmuhib",
-    icon: <AiFillGithub className="group-hover: text-white w-4 h-5" />,
+    icon: <AiFillGithub className="group-hover: text-black w-4 h-5" />,
   },
   {
     path: "https://www.instagram.com/muhib160.official/",
-    icon: <AiOutlineInstagram className="group-hover: text-white w-4 h-5" />,
+    icon: <AiOutlineInstagram className="group-hover: text-black w-4 h-5" />,
   },
   {
     path: "https://www.linkedin.com/in/codingwithmuhib/",
-    icon: <RiLinkedinFill className="group-hover: text-white w-4 h-5" />,
+    icon: <RiLinkedinFill className="group-hover: text-black w-4 h-5" />,
   },
 ];
 
@@ -89,7 +89,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-3 mt-4">
               {socialLinks.map((link, index) => (
-                <Link to={link.path} key={index} className="w-9 h-9 border border-solid border-[#181A1E] rounded-full flex items-center justify-center group hover:bg-primaryColor hover:border-none">
+                <Link to={link.path} key={index} className="w-9 h-9  rounded-full flex items-center justify-center group hover:bg-iconColor hover:border-none">
                   {link.icon}
                 </Link>
                 ))}
