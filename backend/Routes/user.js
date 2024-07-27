@@ -8,8 +8,8 @@ import {
 
 const router = express.Router();
 
-router.get("/:id", getSingleUser);
 router.get("/", getAllUsers);
+router.get("/:id", getSingleUser);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 

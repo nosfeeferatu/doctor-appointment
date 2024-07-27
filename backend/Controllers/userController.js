@@ -8,7 +8,7 @@ export const updateUser = async (req, res) => {
       id,
       { $set: req.body },
       { new: true }
-    );
+    ).select("-password");
 
     res.status(200).json({
       success: true,
