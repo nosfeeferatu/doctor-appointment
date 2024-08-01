@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import ServiceList from "../components/Services/ServiceList";
 import DoctorList from "../components/Doctors/DoctorList";
+import faqImg from "../assets/images/faq-img.png";
 
 const Home = () => {
   return (
@@ -174,6 +175,7 @@ const Home = () => {
       </section>
       {/* Services End */}
 
+      {/* Features Start */}
       <section>
         <div className="container">
           <div className="flex items-center justify-between flex-col lg:flex-row">
@@ -229,6 +231,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Features End */}
+
       {/* Doctors Section */}
       <section>
         <div className="container">
@@ -244,6 +248,18 @@ const Home = () => {
         </div>
       </section>
       {/* Doctors End -- Apple found hehe */}
+
+      {/* Faq Section Start*/}
+      <section>
+        <div className="container">
+          <div className="flex justify-between gap-[50px] lg:gap-0">
+            <div className="w-1/2 hidden md:block">
+              <img src={faqImg} alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Faq Section End */}
     </>
   );
 };
