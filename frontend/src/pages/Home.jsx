@@ -13,6 +13,7 @@ import { BsArrowRight } from "react-icons/bs";
 import ServiceList from "../components/Services/ServiceList";
 import DoctorList from "../components/Doctors/DoctorList";
 import faqImg from "../assets/images/faq-img.png";
+import FaqList from "../components/Faq/FaqList";
 
 const Home = () => {
   return (
@@ -256,10 +257,30 @@ const Home = () => {
             <div className="w-1/2 hidden md:block">
               <img src={faqImg} alt="" />
             </div>
+
+            <div className="w-full md:w-1/2">
+              <h2 className="heading">
+                Most asked questions by our beloved patients
+              </h2>
+              <FaqList />
+            </div>
           </div>
         </div>
       </section>
       {/* Faq Section End */}
+      {/* Testimonials */}
+      <section>
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">What our patients say</h2>
+            <p className="text__para text-center">
+              World-class care for everyone. Our health systems offers
+              unmatched, expert health care.
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* Testimonials end */}
     </>
   );
 };

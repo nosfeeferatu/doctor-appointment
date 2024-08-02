@@ -22,7 +22,7 @@ const DoctorDetails = () => {
                   Surgeon
                 </span>
                 <h3 className="text-headingColor text-[22px] leading-9 mt-3 font-bold">
-                  Gavin Livero
+                  Dr. Gavin Livero
                 </h3>
                 <div className="flex items-center gap-[6px]">
                   <span className="flex items-center gap-[6px] text-[14px] leading-5 lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
@@ -34,8 +34,7 @@ const DoctorDetails = () => {
                   </span>
                 </div>
                 <p className="text__para text-[14px] leading-6 md:text-[15px] lg:max-w-[390px]:">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Recusandae, esse!
+                  Kill-Count: 1000 and counting
                 </p>
               </div>
             </div>
