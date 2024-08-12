@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
 import { toast } from "react-toastify";
 import { authContext } from "../context/AuthContext.jsx";
+import SyncLoader from "react-spinners/SyncLoader.js";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -94,7 +95,7 @@ const Login = () => {
               type="submit"
               className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3"
             >
-              Login
+              {loading ? <SyncLoader size={10} color="#ffffff" /> : "Sign Up"}
             </button>
           </div>
 
