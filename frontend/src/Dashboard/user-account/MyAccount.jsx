@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { authContext } from "../../context/AuthContext";
 import userImg from "../../assets/images/doctor-img01.png";
 
 const MyAccount = () => {
   const { dispatch } = useContext(authContext);
+  const [tab, setTab] = useState("bookings");
+
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
@@ -45,6 +47,28 @@ const MyAccount = () => {
             </button>
             <button className="w-full bg-red-600 text-white mt-4 p-3 text-[16px] leading-7 rounded-md">
               Delete Account
+            </button>
+          </div>
+        </div>
+
+        <div className="md:col-span-2 md:px=[30px]">
+          <div>
+            <button
+              onClick={() => setTab("bookings")}
+              className={`${
+                tab === "bookings" && "bg-primaryColor text-white font-normal"
+              } p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border border-solid border-primaryColor`}
+            >
+              My Bookings
+            </button>
+
+            <button
+              onClick={() => setTab("settings")}
+              className={`${
+                tab === "settings" && "bg-primaryColor text-white font-normal"
+              } p-2 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border border-solid border-primaryColor`}
+            >
+              Profile Settings
             </button>
           </div>
         </div>
