@@ -35,13 +35,108 @@ const Testimonial = () => {
               <img src={patientAvatar} alt="nothing" />
               <div>
                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
-                  Dormammu
+                  Dwayne
                 </h4>
-                <div>
-                  
+                <div className="flex items-center gap-[2px]">
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
                 </div>
               </div>
             </div>
+            <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+              "Dr.Gavin is the best"
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="py-[30px] px-5 rounded-3">
+            <div className="flex items-center gap-[13px]">
+              <img src={patientAvatar} alt="nothing" />
+              <div>
+                <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
+                  Darshan
+                </h4>
+                <div className="flex items-center gap-[2px]">
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                </div>
+              </div>
+            </div>
+            <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+              "Enriching Liver inflammatory experience"
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="py-[30px] px-5 rounded-3">
+            <div className="flex items-center gap-[13px]">
+              <img src={patientAvatar} alt="nothing" />
+              <div>
+                <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
+                  Kevin
+                </h4>
+                <div className="flex items-center gap-[2px]">
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                </div>
+              </div>
+            </div>
+            <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+              "Medicare is the best!!"
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="py-[30px] px-5 rounded-3">
+            <div className="flex items-center gap-[13px]">
+              <img src={patientAvatar} alt="nothing" />
+              <div>
+                <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
+                  Zaidh
+                </h4>
+                <div className="flex items-center gap-[2px]">
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                </div>
+              </div>
+            </div>
+            <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+              "Dr.Banner is the best doctor"
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="py-[30px] px-5 rounded-3">
+            <div className="flex items-center gap-[13px]">
+              <img src={patientAvatar} alt="nothing" />
+              <div>
+                <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
+                  Dormammu
+                </h4>
+                <div className="flex items-center gap-[2px]">
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                  <HiStar className="text-yellowColor w-[18px] h-5" />
+                </div>
+              </div>
+            </div>
+            <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+              "Kidney touching experience"
+            </p>
           </div>
         </SwiperSlide>
       </Swiper>
