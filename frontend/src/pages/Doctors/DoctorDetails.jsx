@@ -3,7 +3,7 @@ import { useState } from "react";
 import doctorImg from "../../assets/images/doctor-img02.png";
 import starIcon from "../../assets/images/Star.png";
 import DoctorAbout from "./DoctorAbout";
-//import Feedback from "./Feedback";
+import Feedback from "./Feedback";
 
 const DoctorDetails = () => {
   const [tab, setTab] = useState("about");
@@ -34,7 +34,7 @@ const DoctorDetails = () => {
                   </span>
                 </div>
                 <p className="text__para text-[14px] leading-6 md:text-[15px] lg:max-w-[390px]:">
-                  Kill-Count: 1000 and counting
+                  Revive-Count: 1000 and counting
                 </p>
               </div>
             </div>
@@ -62,7 +62,7 @@ const DoctorDetails = () => {
 
             <div className="mt-[50px]">
               {tab === "about" && <DoctorAbout />}
-              {/* {tab === "feedback" && <Feedback />} */}
+              {tab === "feedback" && <Feedback />}
             </div>
           </div>
         </div>
