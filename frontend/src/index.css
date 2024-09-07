@@ -26,11 +26,11 @@
     }
 
     .header {
-        @apply bg-[url('./assets/images/mask.png')] bg-no-repeat bg-center bg-cover w-full h-[100px] leading-[100px]
+        @apply bg-gradient-to-r from-[#609BF3] from-50% to-[#B7D4FF] w-full h-[100px] leading-[100px]
     }
 
     .hero_section {
-        @apply bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover;
+        @apply bg-no-repeat bg-center bg-cover;
     }
 }
 
