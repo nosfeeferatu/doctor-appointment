@@ -1,6 +1,7 @@
 import { useRef, useContext } from "react";
 import logo from "../../assets/images/logo-1.png";
-import logotext from "../../assets/images/medikare.png";
+import mobileLogo from "../../assets/images/mobile-logo.png";
+import logoText from "../../assets/images/medikare.png";
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
@@ -39,7 +40,16 @@ const Header = () => {
           <NavLink to="/home">
             <div className="flex items-center">
               <img src={logo} alt="" className="w-[90px] hidden sm:block" />
-              <img src={logotext} alt="" className="w-[100px]" />
+              <img
+                src={logoText}
+                alt=""
+                className="w-[100px] hidden sm:block"
+              />
+              <img
+                src={mobileLogo}
+                alt=""
+                className="w-[90px] block sm:hidden"
+              />
             </div>
           </NavLink>
 
@@ -50,7 +60,7 @@ const Header = () => {
               <NavLink to="/home">
                 <div className="flex items-center">
                   <img src={logo} alt="" className="w-[100px] md:hidden" />
-                  <img src={logotext} alt="" className="w-[100px] md:hidden" />
+                  <img src={logoText} alt="" className="w-[100px] md:hidden" />
                 </div>
               </NavLink>
               {navLinks.map((link, index) => (

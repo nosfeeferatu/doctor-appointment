@@ -11,7 +11,7 @@ const FaqItem = ({ item }) => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="p-3 lg:p-5 rounded-[12px] border border-solid border-[#D9DCE2] mb-5">
+    <div className="p-3 lg:p-5 rounded-[12px] bg-lighterColor border border-solid border-[#D9DCE2] mb-5">
       <div
         className="flex items-center justify-between gap-5"
         onClick={toggleAccordion}
@@ -30,7 +30,7 @@ const FaqItem = ({ item }) => {
 
       {isOpen && (
         <div className="mt-4">
-          <p className="text-[14px] leading-6 lg:text-[16px] lg:leading-7 font-[400] text-textColor">
+          <p className="text-[14px] leading-6 lg:text-[16px] lg:leading-7 font-[400] text-black">
             {item.content}
           </p>
         </div>

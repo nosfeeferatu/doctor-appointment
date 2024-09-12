@@ -1,5 +1,5 @@
 import { useState } from "react";
-import signupImg from "../assets/images/signup.gif";
+import doctorSignupImg from "../assets/images/doctor-signup.png";
 import { Link, useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../utils/uploadCloudinary";
 import { BASE_URL } from "../config";
@@ -68,16 +68,27 @@ const DoctorSignup = () => {
       <div className="max-w-[1170px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* IMAGE BOX */}
-          <div className="hidden lg:block bg-primaryColor rounded-l-lg">
-            <figure className="rounded-l-lg">
-              <img src={signupImg} alt="" className="w-full rounded-l-lg" />
+          <div className="hidden lg:block w-fit mx-auto bg-darkerColor rounded-2xl">
+            <h2 className="text-center py-7 text-lighterColor uppercase font-extrabold text-2xl">
+              Doctor Sign-Up
+            </h2>
+            <figure className="rounded-b-2xl">
+              <img
+                src={doctorSignupImg}
+                alt=""
+                className="w-full rounded-b-2xl"
+              />
             </figure>
           </div>
 
           {/* SIGN UP FORM */}
           <div className="rounded-l-lg lg:pl-16 py-10">
-            <h3 className="text-headingColor text-[22px] leading-9 font-bold mb-10">
+            <h3 className="hidden lg:block text-headingColor text-[50px] leading-9 font-bold mb-10">
               Create an <span className="text-primaryColor">account</span>
+            </h3>
+
+            <h3 className="block lg:hidden text-headingColor text-[50px] leading-9 font-bold mb-10">
+              Create a <span className="text-primaryColor">Doctor account</span>
             </h3>
 
             <form onSubmit={submitHandler}>
