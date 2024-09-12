@@ -17,7 +17,7 @@ const DoctorSignup = () => {
     password: "",
     photo: selectedFile,
     gender: "",
-    role: "patient",
+    role: "doctor",
   });
 
   const navigate = useNavigate();
@@ -118,20 +118,6 @@ const DoctorSignup = () => {
               </div>
 
               <div className="mb-5 flex items-center justify-between">
-                <label className="text-headingColor font-bold text-[16px] leading-7">
-                  Are you a:
-                  <select
-                    name="role"
-                    value={formData.role}
-                    onChange={handleInputChange}
-                    className="text-textColor font-semibold text-[15px] leading-7 px-4 py-3 focus:outline-none"
-                    id=""
-                  >
-                    <option value="patient">Patient</option>
-                    <option value="doctor">Doctor</option>
-                  </select>
-                </label>
-
                 <label className="text-headingColor font-bold text-[16px] leading-7">
                   Gender:
                   <select
