@@ -10,6 +10,8 @@ import Doctors from "../pages/Doctors/Doctors";
 import DoctorDetails from "../pages/Doctors/DoctorDetails";
 import MyAccount from "../Dashboard/user-account/MyAccount";
 import Dashboard from "../Dashboard/doctor-account/Dashboard";
+import DoctorSignup from "../pages/DoctorSignup";
+import PatientSignup from "../pages/PatientSignup";
 
 const Routers = () => {
   return (
@@ -20,6 +22,8 @@ const Routers = () => {
       <Route path="/doctors/:id" element={<DoctorDetails />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Signup />} />
+      <Route path="/register/doctor" element={<DoctorSignup />} />
+      <Route path="/register/patient" element={<PatientSignup />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Services />} />
       <Route
