@@ -28,7 +28,7 @@ const Feedback = () => {
                 {formatDate("08-16-2024")}
               </p>
               <p className="text__para mt-3 font-medium text-[15px]">
-                Punched me after treatment, now I'm back in hospital 10/10
+                Punched me after treatment, now I&apos;m back in hospital 10/10
                 experience
               </p>
             </div>
