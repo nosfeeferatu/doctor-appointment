@@ -38,7 +38,7 @@ const Header = () => {
           {/* LOGO */}
           <NavLink to="/home">
             <div className="flex items-center">
-              <img src={logo} alt="" className="w-[100px] hidden sm:block" />
+              <img src={logo} alt="" className="w-[90px] hidden sm:block" />
               <img src={logotext} alt="" className="w-[100px]" />
             </div>
           </NavLink>
