@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo-1.png";
+import logotext from "../../assets/images/medikare.png";
 import { RiLinkedinFill } from "react-icons/ri";
 import {
   AiFillYoutube,
@@ -44,6 +44,10 @@ const quickLinks01 = [
     path: "/",
     display: "Blog",
   },
+  {
+    path: "/contact",
+    display: "Contact Us",
+  },
 ];
 
 const quickLinks02 = [
@@ -63,16 +67,9 @@ const quickLinks02 = [
     path: "/",
     display: "Get an Opinion",
   },
-];
-
-const quickLinks03 = [
   {
     path: "/",
     display: "Donate",
-  },
-  {
-    path: "/contact",
-    display: "Contact Us",
   },
 ];
 
@@ -80,20 +77,30 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="pb-16 pt-10">
+    <footer className="footer pb-16 pt-10">
       <div className="container">
-        <div className="flex justify-between flex-col md:flex-row flex-wrap gap-[30px]">
+        <div className="flex justify-evenly items-center text-center flex-col md:flex-row md:text-left flex-wrap gap-[30px]">
           <div>
-            <img src={logo} alt="" />
-            <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">Copyright © {year} developed by 3 blokes all rights reserved
-            </p>
-            <div className="flex items-center gap-3 mt-4">
+            <div className="flex flex-col items-center md:block">
+              <img src={logo} alt="" width="100px" />
+              <img src={logotext} alt="" width="100px" />
+            </div>
+
+            <div className="flex justify-center items-center gap-3 mt-4 md:justify-normal">
               {socialLinks.map((link, index) => (
-                <Link to={link.path} key={index} className="w-9 h-9  rounded-full flex items-center justify-center group hover:bg-iconColor hover:border-none">
+                <Link
+                  to={link.path}
+                  key={index}
+                  className="w-9 h-9  rounded-full flex items-center justify-center group hover:bg-iconColor hover:border-none"
+                >
                   {link.icon}
                 </Link>
-                ))}
+              ))}
             </div>
+            <p className="text-[14px] leading-5 font-[400] text-black mt-4">
+              Copyright © {year} <br></br>developed by 3 blokes all rights
+              reserved
+            </p>
           </div>
 
           <div>
@@ -104,7 +111,12 @@ const Footer = () => {
             <ul>
               {quickLinks01.map((item, index) => (
                 <li key={index} className="mb-4">
-                  <Link to={item.path} className="text-[16px] leading-7 font-[400] text-textColor">{item.display}</Link>
+                  <Link
+                    to={item.path}
+                    className="text-[16px] leading-7 font-[400] text-whiteColor hover:text-primaryColor"
+                  >
+                    {item.display}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -118,21 +130,12 @@ const Footer = () => {
             <ul>
               {quickLinks02.map((item, index) => (
                 <li key={index} className="mb-4">
-                  <Link to={item.path} className="text-[16px] leading-7 font-[400] text-textColor">{item.display}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-[20px] leading-[30px] font-[700] mb-6 text-headingColor">
-              Support 
-            </h2>
-
-            <ul>
-              {quickLinks03.map((item, index) => (
-                <li key={index} className="mb-4">
-                  <Link to={item.path} className="text-[16px] leading-7 font-[400] text-textColor">{item.display}</Link>
+                  <Link
+                    to={item.path}
+                    className="text-[16px] leading-7 font-[400] text-whiteColor hover:text-primaryColor"
+                  >
+                    {item.display}
+                  </Link>
                 </li>
               ))}
             </ul>
