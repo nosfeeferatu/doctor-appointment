@@ -6,11 +6,10 @@ import { useState } from "react";
 import FeedbackForm from "./FeedbackForm";
 
 const Feedback = () => {
-
-  const [showFeedbackForm, setShowFeedbackForm] = useState(false)
+  const [showFeedbackForm, setShowFeedbackForm] = useState(false);
   return (
     <div>
-2      <div className="mb-[50px]">
+      <div className="mb-[50px]">
         <h4 className="text-[20px] leading-[30px] font-bold text-headingColor mb-[30px]">
           All reviews (1)
         </h4>
@@ -35,15 +34,23 @@ const Feedback = () => {
           </div>
 
           <div className="flex gap-1">
-            {[...Array(5).keys()].map((_,index)=> <AiFillStar key={index} color='#0067FF'/>)}
+            {[...Array(5).keys()].map((_, index) => (
+              <AiFillStar key={index} color="#0067FF" />
+            ))}
           </div>
         </div>
       </div>
-      {!showFeedbackForm && <div className="text-center"><button className="btn" onClick={()=>setShowFeedbackForm(true)}>Give Feedback</button></div>}
+      {!showFeedbackForm && (
+        <div className="text-center">
+          <button className="btn" onClick={() => setShowFeedbackForm(true)}>
+            Give Feedback
+          </button>
+        </div>
+      )}
 
-      {showFeedbackForm && <FeedbackForm/>}
+      {showFeedbackForm && <FeedbackForm />}
     </div>
   );
-}; 
+};
 
 export default Feedback;
