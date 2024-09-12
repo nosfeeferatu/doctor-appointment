@@ -12,6 +12,8 @@ export default {
         headingColor: "#00327E",
         textColor: "#4E545F",
         whiteColor: "#fff",
+        darkerColor: "#00204f",
+        lighterColor: "#A6C9FF",
       },
 
       boxShadow: {
