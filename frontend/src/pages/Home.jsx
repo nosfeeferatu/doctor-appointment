@@ -258,8 +258,8 @@ const Home = () => {
       {/* Faq Section Start*/}
       <section>
         <div className="container">
-          <div className="flex justify-between gap-[50px] lg:gap-0">
-            <div className="w-1/2 hidden md:block">
+          <div className="flex justify-between gap-[50px] xl:gap-0">
+            <div className="w-1/2 hidden mx-auto md:block">
               <img src={faqImg} alt="" />
             </div>
 
