@@ -26,25 +26,23 @@
     }
 
     .header {
-        @apply bg-gradient-to-r from-[#609BF3] from-50% to-[#B7D4FF] w-full h-[100px] leading-[100px]
+        @apply bg-gradient-to-r from-[#609BF3] from-50% to-[#67a4ff] w-full h-[100px] leading-[100px]
     }
 
     .footer {
-        @apply bg-gradient-to-r from-[#609BF3] from-50% to-[#B7D4FF]
+        @apply bg-gradient-to-r from-[#609BF3] from-50% to-[#67a4ff]
     }
 
     .hero_section {
         @apply bg-no-repeat bg-center bg-cover;
     }
 
-    .form__label{
+    .form__label {
         @apply text-textColor font-semibold text-[16px] mb-2;
     }
 
-    .form__input{
-        @apply w-full px-4 py-3 border border-solid border-[#0066ff61] focus:outline-none
-        focus:border-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor
-        cursor-pointer rounded-md;
+    .form__input {
+        @apply w-full px-4 py-3 border border-solid border-[#0066ff61] focus: outline-none focus:border-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer rounded-md;
     }
 }
 
