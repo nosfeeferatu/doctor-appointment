@@ -54,6 +54,10 @@ body {
   box-shadow: 3px 3px -8px 3px #ddd;
 }
 
+.doctor-card-bg {
+  background: linear-gradient(45deg, #00204F 45%, #A6C9FF);
+}
+
 @media only screen and (max-width:768px) {
   .navigation {
     width: 100%;
