@@ -90,37 +90,16 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[55px]">
+        <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[55px] text-center">
           <div className="py-[30px] px-5">
             <div className="flex items-center justify-center">
-              <img src={icon1} />
-            </div>
-            <div className="mt-[30px]">
-              <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
-                Find a Doctor
-              </h2>
-              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
-                World-class care for everyone. Our health system offers
-                unmatched, expert health care. From the lab to the clinic
-              </p>
-
-              <Link
-                to="/doctors"
-                className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-              >
-                <BsArrowRight className="group-hover:text-white w-6 h-5" />
-              </Link>
-            </div>
-          </div>
-          <div className="py-[30px] px-5">
-            <div className="flex items-center justify-center">
-              <img src={icon2} />
+              <img src={icon2} className="xl:px-20" />
             </div>
             <div className="mt-[30px]">
               <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
                 Find a Location
               </h2>
-              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
+              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 ">
                 World-class care for every one. Our health system offers
                 unmatched, expert health care. From the lab to the clinic
               </p>
@@ -135,13 +114,35 @@ const Home = () => {
           </div>
           <div className="py-[30px] px-5">
             <div className="flex items-center justify-center">
-              <img src={icon3} />
+              <img src={icon1} className="xl:px-20" />
+            </div>
+            <div className="mt-[30px]">
+              <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
+                Find a Doctor
+              </h2>
+              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 ">
+                World-class care for everyone. Our health system offers
+                unmatched, expert health care. From the lab to the clinic
+              </p>
+
+              <Link
+                to="/doctors"
+                className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
+              >
+                <BsArrowRight className="group-hover:text-white w-6 h-5" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="py-[30px] px-5">
+            <div className="flex items-center justify-center">
+              <img src={icon3} className="xl:px-20" />
             </div>
             <div className="mt-[30px]">
               <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
                 Book Appointment
               </h2>
-              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
+              <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 ">
                 World-class care for everyone. Our health system offers
                 unmatched, expert health care. From the lab to the clinic
               </p>
