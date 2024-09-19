@@ -1,25 +1,36 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
-import { BASE_URL } from "../../config";
+import { BASE_URL, token } from "../../config";
 import { toast } from "react-toastify";
 import SyncLoader from "react-spinners/SyncLoader";
 
-const Profile = () => {
+const Profile = ({ user }) => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [previewURL, setPreviewURL] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    photo: selectedFile,
+    photo: null,
     gender: "",
     role: "patient",
+    bloodType: "",
   });
 
   const navigate = useNavigate();
+
+  useEffect(() =>
+    setFormData({
+      name: user.name,
+      email: user.email,
+      photo: user.photo,
+      gender: user.gender,
+      bloodType: user.bloodType,
+    })
+  );
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,7 +40,6 @@ const Profile = () => {
     const file = event.target.files[0];
     const data = await uploadImageToCloudinary(file);
 
-    setPreviewURL(data.url);
     setSelectedFile(data.url);
     setFormData({ ...formData, photo: data.url });
   };
@@ -39,10 +49,11 @@ const Profile = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${BASE_URL}/auth/register`, {
+      const res = await fetch(`${BASE_URL}/users/${user._id}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(formData),
       });
@@ -55,7 +66,7 @@ const Profile = () => {
 
       setLoading(false);
       toast.success(message);
-      navigate("/login");
+      navigate("/users/profile/me");
     } catch (err) {
       toast.error(err.message);
       setLoading(false);
@@ -103,10 +114,10 @@ const Profile = () => {
 
         <div className="mb-5">
           <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={formData.password}
+            type="text"
+            placeholder="Blood Type"
+            name="bloodType"
+            value={formData.bloodType}
             onChange={handleInputChange}
             className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61 focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer"
             required
@@ -132,9 +143,13 @@ const Profile = () => {
         </div>
 
         <div className="mb-5 flex items-center gap-3">
-          {selectedFile && (
+          {formData.photo && (
             <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
-              <img src={previewURL} alt="" className="w-full rounded-full" />
+              <img
+                src={formData.photo}
+                alt=""
+                className="w-full rounded-full"
+              />
             </figure>
           )}
           <div className="relative w-[160px] h-[50px]">
