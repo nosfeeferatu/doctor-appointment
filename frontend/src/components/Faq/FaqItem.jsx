@@ -16,7 +16,7 @@ const FaqItem = ({ item }) => {
         className="flex items-center justify-between gap-5"
         onClick={toggleAccordion}
       >
-        <h4 className="text-[16px] leading-7 lg:text-[22px] leading-8 text-headingColor">
+        <h4 className="text-[16px] leading-7 lg:text-[22px] lg:leading-8 text-headingColor">
           {item.question}
         </h4>
         <div

@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="hero_section pt-[60px] 2xl:h-[800px]">
+      <section className="hero_section pt-[50px] md:pt-[80px] xl:pt-[10px] 2xl:h-[800px]">
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-[90px] items-center justify-between">
             {/* Hero Content */}
@@ -30,7 +30,7 @@ const Home = () => {
                   We help patients live a healthy, longer life
                 </h1>
 
-                <p className="text_para">
+                <p className="text_para pt-5">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptates libero sapiente repellendus ut, aliquam expedita
                   magni laboriosam praesentium quas est non similique, nulla
@@ -40,27 +40,27 @@ const Home = () => {
                 <button className="btn">Request an Appointment</button>
 
                 {/* Hero Counter */}
-                <div className="mt-[30px] lg:mt-[70px] flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-[30px]">
+                <div className="mt-[30px] lg:mt-[70px] flex flex-col md:flex-row lg:items-center gap-5 lg:gap-[30px]">
                   <div>
-                    <h2 className="text-[36px] leading-[506px] lg:text-[44px] lg:leading-[54px] font-[700] text-headingColor">
+                    <h2 className="text-[36px] leading-[56px] lg:text-[44px] lg:leading-[54px] font-[700] text-headingColor">
                       30+
                     </h2>
-                    <span className="w-[100px] h-2 bg-yellowColor rounded-full block mt-[-14px]"></span>
-                    <p className="text__para">Years of Experience</p>
+                    <span className="w-[100px] h-2 bg-lighterColor rounded-full block mt-[-8px]"></span>
+                    <p className="text__para mt-[8px]">Years of Experience</p>
                   </div>
                   <div>
-                    <h2 className="text-[36px] leading-[506px] lg:text-[44px] lg:leading-[54px] font-[700] text-headingColor">
+                    <h2 className="text-[36px] leading-[56px] lg:text-[44px] lg:leading-[54px] font-[700] text-headingColor">
                       15+
                     </h2>
-                    <span className="w-[100px] h-2 bg-purpleColor rounded-full block mt-[-14px]"></span>
-                    <p className="text__para">Clinic Location</p>
+                    <span className="w-[100px] h-2 bg-lighterColor rounded-full block mt-[-8px]"></span>
+                    <p className="text__para mt-[8px]">Clinic Location</p>
                   </div>
                   <div>
-                    <h2 className="text-[36px] leading-[506px] lg:text-[44px] lg:leading-[54px] font-[700] text-headingColor">
+                    <h2 className="text-[36px] leading-[56px] lg:text-[44px] lg:leading-[54px] font-[700] text-headingColor">
                       100%
                     </h2>
-                    <span className="w-[100px] h-2 bg-irisBlueColor rounded-full block mt-[-14px]"></span>
-                    <p className="text__para">Patient Satisfaction</p>
+                    <span className="w-[100px] h-2 bg-lighterColor rounded-full block mt-[-8px]"></span>
+                    <p className="text__para mt-[8px]">Patient Satisfaction</p>
                   </div>
                 </div>
               </div>
@@ -69,10 +69,6 @@ const Home = () => {
             <div className="flex gap-[30px] justify-end">
               <div>
                 <img className="w-full" src={heroImg01} alt="" />
-              </div>
-              <div className="mt-[30px]">
-                <img src={heroImg02} className="w-full mb-[30px]" />
-                <img src={heroImg03} className="w-full " />
               </div>
             </div>
           </div>
