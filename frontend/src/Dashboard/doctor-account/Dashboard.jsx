@@ -16,9 +16,9 @@ const Dashboard = () => {
     <section>
       <div className="max-w-[1170px] px-5 mx-auto">
         {loading && !error && <Loader />}
-        {error && !loading && <Error />}
+        {error && !loading && <Error errMessage={error} />}
 
-        {!loading && (
+        {!loading && !error && (
           <div className="grid lg:grid-cols-3 gap-[30px] lg:gap-[50px]">
             <Tabs tab={tab} setTab={setTab} />
             <div className="lg:col-span-2">
