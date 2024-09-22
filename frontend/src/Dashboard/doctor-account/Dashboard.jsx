@@ -4,6 +4,7 @@ import useGetProfile from "../../hooks/useFetchData";
 import { BASE_URL } from "../../config";
 import Tabs from "./Tabs";
 import { useState } from "react";
+import Profile from "./Profile";
 
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(
@@ -31,11 +32,42 @@ const Dashboard = () => {
                     width="100"
                     height="100"
                     viewBox="0 0 50 50"
+                    className="flex-shrink-0 w-5 h-5"
+                    fill="#854d0e"
                   >
-                    <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 3 3 0 0 0 22 14 A 3 3 0 0 0 25 17 A 3 3 0 0 0 28 14 A 3 3 0 0 0 25 11 z M 21 21 L 21 23 L 22 23 L 23 23 L 23 36 L 22 36 L 21 36 L 21 38 L 22 38 L 23 38 L 27 38 L 28 38 L 29 38 L 29 36 L 28 36 L 27 36 L 27 21 L 26 21 L 22 21 L 21 21 z"></path>
+                    <path d="M25,2C12.297,2,2,12.297,2,25s10.297,23,23,23s23-10.297,23-23S37.703,2,25,2z M25,11c1.657,0,3,1.343,3,3s-1.343,3-3,3 s-3-1.343-3-3S23.343,11,25,11z M29,38h-2h-4h-2v-2h2V23h-2v-2h2h4v2v13h2V38z"></path>
                   </svg>
+
+                  <span className="sr-only">Info</span>
+                  <div className="ml-3 text-sm font-medium">
+                    To get approval please complete your profile. It will be
+                    reviewed manually and approved within 3 days.
+                  </div>
                 </div>
               )}
+
+              <div className="mt-8">
+                {tab == "overview" && (
+                  <div>
+                    <div className="flex items-center gap-4 mb-10">
+                      <figure className="max-w-[200px] max-h-[200px]">
+                        <img src={data?.photo} alt="" className="w-full" />
+                      </figure>
+
+                      <div>
+                        <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-4 lg:py-2 lg:px-6 rounded text-[12px] leading-4 lg:text-[16px] lg:leading-6 font-semibold">
+                          Surgeon
+                        </span>
+                        <h3 className="text-[22px] leading-9 font-bold text-headingColor mt-3">
+                          Dr. House
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {tab == "appointments" && <div>appointments</div>}
+                {tab == "settings" && <Profile />}
+              </div>
             </div>
           </div>
         )}
