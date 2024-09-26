@@ -5,6 +5,8 @@ import { BASE_URL } from "../../config";
 import Tabs from "./Tabs";
 import { useState } from "react";
 import Profile from "./Profile";
+import starIcon from "../../assets/images/Star.png";
+import DoctorAbout from "../../pages/Doctors/DoctorAbout";
 
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(
@@ -61,8 +63,26 @@ const Dashboard = () => {
                         <h3 className="text-[22px] leading-9 font-bold text-headingColor mt-3">
                           Dr. House
                         </h3>
+                        <div className="flex items-center gap-[6px]">
+                          <span className="flex items-center gap-[6px] text-textColor text-[14px] leading-5 lg:text-[16px] lg:leading-6 font-semibold ">
+                            <img src={starIcon} alt="" />5
+                          </span>
+                          <span className="text-textColor text-[14px] leading-5 lg:text-[16px] lg:leading-6 font-semibold">
+                            (1000)
+                          </span>
+                        </div>
+
+                        <p className="text__para font-[15px] lg:max-w-[390px] leading-6">
+                          Doctor Bio
+                        </p>
                       </div>
                     </div>
+                    <DoctorAbout
+                      name={data.name}
+                      about={data.about}
+                      qualifications={data.qualifications}
+                      experiences={data.experiences}
+                    />
                   </div>
                 )}
                 {tab == "appointments" && <div>appointments</div>}
