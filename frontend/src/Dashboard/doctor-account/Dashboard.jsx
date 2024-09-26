@@ -5,6 +5,7 @@ import { BASE_URL } from "../../config";
 import Tabs from "./Tabs";
 import { useState } from "react";
 import Profile from "./Profile";
+import Appointments from "./Appointments";
 
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(
@@ -65,7 +66,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 )}
-                {tab == "appointments" && <div>appointments</div>}
+                {tab == "appointments" && <Appointments appointments={data.appointments}/>}
                 {tab == "settings" && <Profile />}
               </div>
             </div>

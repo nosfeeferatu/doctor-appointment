@@ -10,8 +10,7 @@ const DoctorCard = ({ doctor }) => {
     totalRating,
     photo,
     specialization,
-    totalPatients,
-    hospital,
+    experiences
   } = doctor;
   return (
     <div className="p-4 lg:p-7 doctor-card-bg rounded-[30px]">
@@ -29,7 +28,7 @@ const DoctorCard = ({ doctor }) => {
       </Link>
       <div className="mt-2 lg:mt-4 text-center">
         <p className=" text-whiteColor py-1 px-2 lg:px-6 text-[14px] leading-4 lg:text-[16px] lg:leading-7 font-light">
-          {hospital}
+          At {experiences && experiences[0]?.hospital}
         </p>
         <p className="text-[24px] leading-6 font-[400] text-whiteColor">
           {specialization}
@@ -37,9 +36,9 @@ const DoctorCard = ({ doctor }) => {
       </div>
       <div className="mt-[18px] lg:mt-8 flex items-center justify-between">
         <div>
-          <h3 className="text-[14px] leading-7 lg:text-[16px] lg:leading-[30px] font-light text-lighterColor">
+          {/* <h3 className="text-[14px] leading-7 lg:text-[16px] lg:leading-[30px] font-light text-lighterColor">
             +{totalPatients} patients
-          </h3>
+          </h3> */}
         </div>
         <div>
           <div className="flex items-center gap-[6px]">
