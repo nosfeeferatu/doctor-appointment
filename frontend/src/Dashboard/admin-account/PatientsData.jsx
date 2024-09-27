@@ -9,21 +9,25 @@ const PatientsData = () => {
 
   return (
     <div>
-      Patient
+      <h2 className="text-headingColor font-bold text-[24px] leading-9 mb-5">
+        Patient Data
+      </h2>
       {loading && <Loading />}
       {error && <Error errMessage={error} />}
-      <DataGrid
-        autoHeight
-        columns={[
-          { field: "id" },
-          { field: "name", flex: 1 },
-          { field: "email", flex: 1 },
-          { field: "bloodType", flex: 1 },
-        ]}
-        rows={users}
-        getRowId={(row) => row._id}
-        sx={{ "--DataGrid-overlayHeight": "300px", background: "" }}
-      />
+      {!loading && !error && (
+        <DataGrid
+          autoHeight
+          columns={[
+            { field: "id" },
+            { field: "name", flex: 1 },
+            { field: "email", flex: 1 },
+            { field: "bloodType", flex: 1 },
+          ]}
+          rows={users}
+          getRowId={(row) => row._id}
+          sx={{ "--DataGrid-overlayHeight": "300px", background: "" }}
+        />
+      )}
     </div>
   );
 };
