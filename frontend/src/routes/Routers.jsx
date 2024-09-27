@@ -12,6 +12,7 @@ import MyAccount from "../Dashboard/user-account/MyAccount";
 import Dashboard from "../Dashboard/doctor-account/Dashboard";
 import DoctorSignup from "../pages/DoctorSignup";
 import PatientSignup from "../pages/PatientSignup";
+import AdminDashboard from "../Dashboard/admin-account/AdminDashboard";
 
 const Routers = () => {
   return (
@@ -39,6 +40,14 @@ const Routers = () => {
         element={
           <ProtectedRoutes allowedRoles={["doctor"]}>
             <Dashboard />
+          </ProtectedRoutes>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoutes allowedRoles={["admin"]}>
+            <AdminDashboard />
           </ProtectedRoutes>
         }
       />

@@ -5,6 +5,7 @@ import {
   updateDoctor,
   deleteDoctor,
   getDoctorProfile,
+  getDoctorsList,
 } from "../Controllers/doctorController.js";
 import { authenticate, restrict } from "../auth/verifyToken.js";
 
@@ -16,6 +17,7 @@ const router = express.Router();
 router.use("/:doctorId/reviews", reviewRouter);
 
 router.get("/", getAllDoctors);
+router.get("/list", getDoctorsList);
 router.get("/:id", getSingleDoctor);
 router.put("/:id", authenticate, restrict(["doctor"]), updateDoctor);
 router.delete("/:id", authenticate, restrict(["doctor"]), deleteDoctor);

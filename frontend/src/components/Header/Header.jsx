@@ -2,6 +2,7 @@ import { useRef, useContext } from "react";
 import logo from "../../assets/images/logo-1.png";
 import mobileLogo from "../../assets/images/mobile-logo.png";
 import logoText from "../../assets/images/medikare.png";
+import adminProfile from "../../assets/images/admin-profile.png";
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
@@ -88,12 +89,14 @@ const Header = () => {
                   to={`${
                     role === "doctor"
                       ? "/doctors/profile/me"
+                      : role === "admin"
+                      ? "/admin"
                       : "/users/profile/me"
                   }`}
                 >
                   <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
                     <img
-                      src={user?.photo}
+                      src={role === "admin" ? adminProfile : user?.photo}
                       className="w-full rounded-full"
                       alt=""
                     />

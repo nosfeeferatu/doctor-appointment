@@ -16,7 +16,12 @@ router.get("/", authenticate, restrict(["admin"]), getAllUsers);
 router.get("/:id", authenticate, restrict(["patient"]), getSingleUser);
 router.put("/:id", authenticate, restrict(["patient"]), updateUser);
 router.delete("/:id", authenticate, restrict(["patient"]), deleteUser);
-router.get("/profile/me", authenticate, restrict(["patient"]), getUserProfile);
+router.get(
+  "/profile/me",
+  authenticate,
+  restrict(["patient", "admin"]),
+  getUserProfile
+);
 router.get(
   "/appointments/my-appointments",
   authenticate,
