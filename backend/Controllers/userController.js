@@ -55,7 +55,7 @@ export const getSingleUser = async (req, res) => {
 
 export const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find({}).select("-password");
+    const users = await User.find({ role: "patient" }).select("-password");
 
     res.status(200).json({
       success: true,
