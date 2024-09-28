@@ -1,9 +1,11 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import uploadImageToCloudinary from "./../../utils/uploadCloudinary";
 import { BASE_URL, token } from "./../../config";
 import { toast } from "react-toastify";
 
+// eslint-disable-next-line react/prop-types
 const Profile = ({ doctorData }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -19,6 +21,23 @@ const Profile = ({ doctorData }) => {
     timeSlots: [],
     photo: null,
   });
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    setFormData({
+      name: doctorData?.name,
+      email: doctorData?.email,
+      phone: doctorData?.phone,
+      bio: doctorData?.bio,
+      gender: doctorData?.gender,
+      specialization: doctorData?.specialization,
+      ticketPrice: doctorData?.ticketPrice,
+      qualifications: doctorData?.qualifications,
+      experiences: doctorData?.experiences,
+      timeSlots: doctorData?.timeSlots,
+      photo: doctorData?.photo,
+    });
+  }, [doctorData]);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,7 +67,7 @@ const Profile = ({ doctorData }) => {
 
       const result = await res.json();
       if (!res.ok) {
-        throw Error();
+        throw Error(result.message);
       }
 
       toast.success(result.message);
@@ -228,9 +247,9 @@ const Profile = ({ doctorData }) => {
                 className="form__input py-3.5"
               >
                 <option value="">Select</option>
-                <option value="surgeon">Surgeon</option>
-                <option value="neurologist">Neurologist</option>
-                <option value="dermatologist">Dermatologist</option>
+                <option value="Surgeon">Surgeon</option>
+                <option value="Neurologist">Neurologist</option>
+                <option value="Dermatologist">Dermatologist</option>
               </select>
             </div>
             <div>
