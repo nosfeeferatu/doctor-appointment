@@ -9,8 +9,8 @@ import { toast } from "react-toastify";
 const Profile = ({ doctorData }) => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    password: "",
+    // email: "",
+    // password: "",
     phone: "",
     bio: "",
     gender: "",
@@ -26,7 +26,7 @@ const Profile = ({ doctorData }) => {
   useEffect(() => {
     setFormData({
       name: doctorData?.name,
-      email: doctorData?.email,
+      // email: doctorData?.email,
       phone: doctorData?.phone,
       bio: doctorData?.bio,
       gender: doctorData?.gender,
