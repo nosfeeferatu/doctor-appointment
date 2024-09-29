@@ -7,6 +7,7 @@ export default {
         primaryColor: "#0044AA",
         iconColor: "#ccf0f3",
         yellowColor: "#FEB60D",
+        greenColor: "#22c55e",
         purpleColor: "#9771FF",
         irisBlueColor: "#01B5C5",
         headingColor: "#00327E",

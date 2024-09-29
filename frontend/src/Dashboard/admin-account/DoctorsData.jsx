@@ -11,6 +11,38 @@ const DoctorsData = () => {
     error,
   } = useFetchData(`${BASE_URL}/doctors/list`);
 
+  const columns = [
+    {
+      field: "id",
+      headerName: "ID",
+      renderCell: (index) =>
+        index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
+    },
+    {
+      field: "name",
+      headerName: "Name",
+      renderCell: ({ row }) => <p className="capitalize">{row.name}</p>,
+      flex: 1,
+    },
+    {
+      field: "isApproved",
+      headerName: "Approval Status",
+      renderCell: ({ row }) => (
+        <p
+          className="inline-block rounded leading-9 px-2 capitalize font-semibold text-[#334155]"
+          style={
+            row.isApproved === "approved"
+              ? { background: "#22c55e" }
+              : { background: "#FEB60D" }
+          }
+        >
+          {row.isApproved}
+        </p>
+      ),
+      flex: 1,
+    },
+  ];
+
   return (
     <div>
       <h2 className="text-headingColor font-bold text-[24px] leading-9 mb-5">
@@ -21,11 +53,7 @@ const DoctorsData = () => {
       {!loading && !error && (
         <DataGrid
           autoHeight
-          columns={[
-            { field: "id" },
-            { field: "name", flex: 1 },
-            { field: "isApproved", flex: 1 },
-          ]}
+          columns={columns}
           rows={doctors}
           getRowId={(row) => row._id}
           sx={{ "--DataGrid-overlayHeight": "300px", background: "" }}
