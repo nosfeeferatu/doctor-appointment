@@ -9,6 +9,7 @@ import Error from "../../components/Error/Error";
 import Tabs from "./Tabs";
 import DoctorsData from "./DoctorsData";
 import PatientsData from "./PatientsData";
+import ServicesData from "./ServicesData";
 
 const AdminDashboard = () => {
   const [tab, setTab] = useState("doctors");
@@ -45,6 +46,7 @@ const AdminDashboard = () => {
             <div className="lg:col-span-2 md:px=[30px]">
               {tab == "doctors" && <DoctorsData />}
               {tab == "patients" && <PatientsData />}
+              {tab == "services" && <ServicesData />}
             </div>
           </div>
         )}
