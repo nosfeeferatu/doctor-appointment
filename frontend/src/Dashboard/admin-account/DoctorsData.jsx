@@ -1,5 +1,6 @@
 import { DataGrid } from "@mui/x-data-grid";
 import useFetchData from "../../hooks/useFetchData";
+import { AiOutlineEye } from "react-icons/ai";
 import { BASE_URL } from "../../config";
 import Loading from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
@@ -25,6 +26,28 @@ const DoctorsData = () => {
       flex: 1,
     },
     {
+      field: "email",
+      headerName: "Email",
+      renderCell: ({ row }) => (
+        <a
+          className="text-darkerColor hover:underline"
+          href={`mailto:${row.email}`}
+        >
+          {row.email}
+        </a>
+      ),
+      flex: 1,
+    },
+    {
+      field: "averageRating",
+      headerName: "Ratings",
+      renderCell: ({ row }) => (
+        <p className="capitalize">
+          {row.averageRating} ({row.totalRating})
+        </p>
+      ),
+    },
+    {
       field: "isApproved",
       headerName: "Approval Status",
       renderCell: ({ row }) => (
@@ -40,6 +63,14 @@ const DoctorsData = () => {
         </p>
       ),
       flex: 1,
+    },
+    {
+      headerName: "Actions",
+      renderCell: ({ row }) => (
+        <div className=" p-4 rounded-full text-[18px] cursor-pointer">
+          <AiOutlineEye />
+        </div>
+      ),
     },
   ];
 
