@@ -10,6 +10,7 @@ import Tabs from "./Tabs";
 import PatientsData from "./PatientsData";
 import ServicesData from "./Services/ServicesData";
 import DoctorsData from "./Doctors/DoctorsData";
+import FAQData from "./Faq/FAQData";
 
 const AdminDashboard = () => {
   const [tab, setTab] = useState("doctors");
@@ -47,6 +48,7 @@ const AdminDashboard = () => {
               {tab == "doctors" && <DoctorsData />}
               {tab == "patients" && <PatientsData />}
               {tab == "services" && <ServicesData />}
+              {tab == "faq" && <FAQData />}
             </div>
           </div>
         )}
