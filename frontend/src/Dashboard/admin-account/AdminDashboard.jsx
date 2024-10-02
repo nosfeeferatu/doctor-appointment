@@ -7,9 +7,9 @@ import { BASE_URL } from "../../config";
 import Loading from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 import Tabs from "./Tabs";
-import DoctorsData from "./DoctorsData";
 import PatientsData from "./PatientsData";
-import ServicesData from "./ServicesData";
+import ServicesData from "./Services/ServicesData";
+import DoctorsData from "./Doctors/DoctorsData";
 
 const AdminDashboard = () => {
   const [tab, setTab] = useState("doctors");
@@ -24,7 +24,7 @@ const AdminDashboard = () => {
 
   return (
     <section>
-      <div className="max-w-[1170px] px-5 mx-auto">
+      <div className="max-w-[1400px] px-5 mx-auto">
         {loading && <Loading />}
 
         {error && <Error errMessage={error} />}

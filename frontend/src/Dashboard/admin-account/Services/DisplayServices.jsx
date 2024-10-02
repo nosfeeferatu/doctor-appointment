@@ -1,13 +1,11 @@
 import { useState } from "react";
 
-import useFetchData from "../../hooks/useFetchData";
+import useFetchData from "../../../hooks/useFetchData";
 import { AiOutlineDelete } from "react-icons/ai";
-import { BASE_URL, token } from "../../config";
 import { DataGrid } from "@mui/x-data-grid";
-import Loading from "../../components/Loader/Loading";
-import Error from "../../components/Error/Error";
+import Loading from "../../../components/Loader/Loading";
+import Error from "../../../components/Error/Error";
 import {
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -17,6 +15,7 @@ import {
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import SyncLoader from "react-spinners/SyncLoader";
+import { BASE_URL, token } from "../../../config";
 
 const DisplayServices = () => {
   const {
