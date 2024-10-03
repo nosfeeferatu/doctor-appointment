@@ -217,7 +217,7 @@ const Profile = ({ doctorData }) => {
             name="bio"
             value={formData.bio}
             onChange={handleInputChange}
-            placeholder="Bio Number"
+            placeholder="Bio"
             className="form__input"
             maxLength={100}
           />
