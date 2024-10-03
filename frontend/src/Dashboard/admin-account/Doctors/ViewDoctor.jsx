@@ -117,7 +117,7 @@ const ViewDoctor = ({ docID }) => {
             </div>
 
             {data.isApproved === "pending" && (
-              <div className="flex gap-2">
+              <div className="flex gap-2 mt-8">
                 <button className=" bg-red-600 text-white leading-9 rounded-lg pt-0.5 px-4 mt-[-.25rem] mb-5">
                   Reject
                 </button>
