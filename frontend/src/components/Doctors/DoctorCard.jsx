@@ -18,7 +18,7 @@ const DoctorCard = ({ doctor }) => {
         <img src={photo} className="w-full p-2 rounded-full" />
       </div>
       <Link
-        to="/doctors"
+        to={`/doctors/${doctor._id}`}
         className="text-whiteColor flex justify-center items-center gap-2 btn"
       >
         <h2 className="text-[25px] md:text-[16px] lg:text-[20px] font-light">

@@ -7,8 +7,10 @@ import { BASE_URL } from "../../config";
 import Loading from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 import Tabs from "./Tabs";
-import DoctorsData from "./DoctorsData";
 import PatientsData from "./PatientsData";
+import ServicesData from "./Services/ServicesData";
+import DoctorsData from "./Doctors/DoctorsData";
+import FAQData from "./Faq/FAQData";
 
 const AdminDashboard = () => {
   const [tab, setTab] = useState("doctors");
@@ -23,7 +25,7 @@ const AdminDashboard = () => {
 
   return (
     <section>
-      <div className="max-w-[1170px] px-5 mx-auto">
+      <div className="max-w-[1400px] px-5 mx-auto">
         {loading && <Loading />}
 
         {error && <Error errMessage={error} />}
@@ -45,6 +47,8 @@ const AdminDashboard = () => {
             <div className="lg:col-span-2 md:px=[30px]">
               {tab == "doctors" && <DoctorsData />}
               {tab == "patients" && <PatientsData />}
+              {tab == "services" && <ServicesData />}
+              {tab == "faq" && <FAQData />}
             </div>
           </div>
         )}

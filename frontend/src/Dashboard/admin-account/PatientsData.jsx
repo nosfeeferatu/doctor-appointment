@@ -3,6 +3,7 @@ import useFetchData from "../../hooks/useFetchData";
 import { BASE_URL } from "../../config";
 import Loading from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
+import { AiOutlineEye } from "react-icons/ai";
 
 const PatientsData = () => {
   const { data: users, loading, error } = useFetchData(`${BASE_URL}/users`);
@@ -38,6 +39,14 @@ const PatientsData = () => {
       headerName: "Blood Type",
       renderCell: ({ row }) => <p>{row.bloodType}</p>,
       flex: 1,
+    },
+    {
+      headerName: "Actions",
+      renderCell: ({ row }) => (
+        <div className=" p-4 rounded-full text-[18px] cursor-pointer">
+          <AiOutlineEye />
+        </div>
+      ),
     },
   ];
 

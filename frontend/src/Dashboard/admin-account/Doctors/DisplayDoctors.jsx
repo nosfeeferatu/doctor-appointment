@@ -1,10 +1,12 @@
 import { DataGrid } from "@mui/x-data-grid";
-import useFetchData from "../../hooks/useFetchData";
-import { BASE_URL } from "../../config";
-import Loading from "../../components/Loader/Loading";
-import Error from "../../components/Error/Error";
+import { AiOutlineEye } from "react-icons/ai";
+import Loading from "../../../components/Loader/Loading";
+import Error from "../../../components/Error/Error";
+import useFetchData from "../../../hooks/useFetchData";
+import { BASE_URL } from "../../../config";
 
-const DoctorsData = () => {
+// eslint-disable-next-line react/prop-types
+const DisplayDoctors = ({ setView, setDocID }) => {
   const {
     data: doctors,
     loading,
@@ -25,6 +27,28 @@ const DoctorsData = () => {
       flex: 1,
     },
     {
+      field: "email",
+      headerName: "Email",
+      renderCell: ({ row }) => (
+        <a
+          className="text-darkerColor hover:underline"
+          href={`mailto:${row.email}`}
+        >
+          {row.email}
+        </a>
+      ),
+      flex: 1,
+    },
+    {
+      field: "averageRating",
+      headerName: "Ratings",
+      renderCell: ({ row }) => (
+        <p className="capitalize">
+          {row.averageRating} ({row.totalRating})
+        </p>
+      ),
+    },
+    {
       field: "isApproved",
       headerName: "Approval Status",
       renderCell: ({ row }) => (
@@ -41,13 +65,23 @@ const DoctorsData = () => {
       ),
       flex: 1,
     },
+    {
+      headerName: "Actions",
+      renderCell: ({ row }) => (
+        <button
+          onClick={() => {
+            setView(true);
+            setDocID(row._id);
+          }}
+          className=" p-4 rounded-full text-[18px] cursor-pointer"
+        >
+          <AiOutlineEye />
+        </button>
+      ),
+    },
   ];
-
   return (
     <div>
-      <h2 className="text-headingColor font-bold text-[24px] leading-9 mb-5">
-        Doctor Data
-      </h2>
       {loading && <Loading />}
       {error && <Error errMessage={error} />}
       {!loading && !error && (
@@ -63,4 +97,4 @@ const DoctorsData = () => {
   );
 };
 
-export default DoctorsData;
+export default DisplayDoctors;

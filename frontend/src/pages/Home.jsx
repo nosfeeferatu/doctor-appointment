@@ -231,8 +231,8 @@ const Home = () => {
       <section>
         <div className="container">
           <div className="flex justify-between gap-[50px] xl:gap-0">
-            <div className="w-1/2 hidden mx-auto md:block">
-              <img src={faqImg} alt="" />
+            <div className="w-1/2 hidden relative mx-auto md:block">
+              <img src={faqImg} alt="" className="sticky top-24" />
             </div>
 
             <div className="w-full md:w-1/2">
