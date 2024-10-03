@@ -37,7 +37,9 @@ const Home = () => {
                   eveniet excepturi? Voluptatibus numquam et veritatis est.
                 </p>
 
-                <button className="btn">Request an Appointment</button>
+                <Link to="/doctors">
+                  <button className="btn">Request an Appointment</button>
+                </Link>
 
                 {/* Hero Counter */}
                 <div className="mt-[30px] lg:mt-[70px] flex flex-col md:flex-row lg:items-center gap-5 lg:gap-[30px]">
