@@ -6,16 +6,16 @@ import { BsArrowRight } from "react-icons/bs";
 const DoctorCard = ({ doctor }) => {
   const {
     name,
-    avgRating,
+    averageRating,
     totalRating,
     photo,
     specialization,
-    experiences
+    experiences,
   } = doctor;
   return (
     <div className="p-4 lg:p-7 doctor-card-bg rounded-[30px]">
-      <div>
-        <img src={photo} className="w-full p-2 rounded-full" />
+      <div className="overflow-hidden aspect-square rounded-full">
+        <img src={photo} className="w-full" />
       </div>
       <Link
         to={`/doctors/${doctor._id}`}
@@ -27,9 +27,11 @@ const DoctorCard = ({ doctor }) => {
         <BsArrowRight />
       </Link>
       <div className="mt-2 lg:mt-4 text-center">
-        <p className=" text-whiteColor py-1 px-2 lg:px-6 text-[14px] leading-4 lg:text-[16px] lg:leading-7 font-light">
-          At {experiences && experiences[0]?.hospital}
-        </p>
+        {experiences[0]?.hospital && (
+          <p className=" text-whiteColor py-1 px-2 lg:px-6 text-[14px] leading-4 lg:text-[16px] lg:leading-7 font-light">
+            At {experiences[0]?.hospital}
+          </p>
+        )}
         <p className="text-[24px] leading-6 font-[400] text-whiteColor">
           {specialization}
         </p>
@@ -44,7 +46,7 @@ const DoctorCard = ({ doctor }) => {
           <div className="flex items-center gap-[6px]">
             <span className="flex items-center gap-1 text-[14px] leading-6 lg:text-[16px] lg:leading-7 font-light text-lighterColor">
               <img src={starIcon} className="w-3 pb-1" />
-              {avgRating}
+              {averageRating}
             </span>
             <span className="text-[14px] leading-6 lg:text-[16px] lg:leading-7 font-light text-lighterColor">
               ({totalRating})

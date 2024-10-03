@@ -229,10 +229,10 @@ const Home = () => {
 
       {/* Faq Section Start*/}
       <section>
-        <div className="container">
+        <div className="container mt-5">
           <div className="flex justify-between gap-[50px] xl:gap-0">
             <div className="w-1/2 hidden relative mx-auto md:block">
-              <img src={faqImg} alt="" className="sticky top-24" />
+              <img src={faqImg} alt="" className="sticky top-28" />
             </div>
 
             <div className="w-full md:w-1/2">

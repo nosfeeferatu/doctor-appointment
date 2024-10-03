@@ -70,11 +70,13 @@ export const getAllDoctors = async (req, res) => {
           { name: { $regex: query, $options: "i" } },
           { specialization: { $regex: query, $options: "i" } },
         ],
-      }).select("-password");
+      })
+        .select("-password")
+        .sort({ averageRating: -1 });
     } else {
-      doctors = await Doctor.find({ isApproved: "approved" }).select(
-        "-password"
-      );
+      doctors = await Doctor.find({ isApproved: "approved" })
+        .select("-password")
+        .sort({ averageRating: -1 });
     }
 
     res.status(200).json({
@@ -134,5 +136,27 @@ export const getDoctorsList = async (req, res) => {
     });
   } catch (err) {
     res.status(404).json({ success: false, message: "Not found" });
+  }
+};
+
+export const approveDoctor = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const approvedDoctor = await Doctor.findByIdAndUpdate(
+      id,
+      { isApproved: "approved" },
+      { new: true }
+    ).select("-password");
+
+    res.status(200).json({
+      success: true,
+      message: "Doctor approved successfully",
+      data: approvedDoctor,
+    });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ success: false, message: "Failed to approve doctor" });
   }
 };
