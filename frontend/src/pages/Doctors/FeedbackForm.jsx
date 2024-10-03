@@ -12,6 +12,7 @@ const FeedbackForm = () => {
   const [reviewText, setReviewText] = useState("");
   const [loading, setLoading] = useState(false);
   const {id} = useParams();
+  console.log(token)
   
   const handleSubmitReview = async e=>{
     e.preventDefault();
@@ -39,7 +40,9 @@ const FeedbackForm = () => {
       toast.success(result.message);
     } catch (err) {
       setLoading(false);
+      console.log(err.message);
       toast.error(err.message);
+    
     }
   };
 

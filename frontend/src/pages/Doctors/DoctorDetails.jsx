@@ -98,12 +98,16 @@ const DoctorDetails = () => {
                 experiences={experiences}
               />
               )}
-              {tab === "feedback" && <Feedback />}
+              {tab === "feedback" && 
+              <Feedback 
+              reviews={reviews}
+              totalRating={totalRating}
+              
+              />}
             </div>
           </div>
-
           <div>
-            <SidePanel />
+            <SidePanel doctorId={doctor._id} ticketPrice={ticketPrice} timeSlots={timeSlots} />
           </div>
         </div>
         )}
