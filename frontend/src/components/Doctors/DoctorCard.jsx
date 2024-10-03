@@ -4,18 +4,12 @@ import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 
 const DoctorCard = ({ doctor }) => {
-  const {
-    name,
-    avgRating,
-    totalRating,
-    photo,
-    specialization,
-    experiences
-  } = doctor;
+  const { name, avgRating, totalRating, photo, specialization, experiences } =
+    doctor;
   return (
     <div className="p-4 lg:p-7 doctor-card-bg rounded-[30px]">
-      <div>
-        <img src={photo} className="w-full p-2 rounded-full" />
+      <div className="overflow-hidden aspect-square rounded-full">
+        <img src={photo} className="w-full" />
       </div>
       <Link
         to={`/doctors/${doctor._id}`}
