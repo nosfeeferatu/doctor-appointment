@@ -1,13 +1,61 @@
 import Loader from "../../../components/Loader/Loading";
 import Error from "../../../components/Error/Error";
-import { BASE_URL } from "../../../config";
+import { BASE_URL, token } from "../../../config";
 import starIcon from "../../../assets/images/Star.png";
 import DoctorAbout from "../../../pages/Doctors/DoctorAbout";
 import useFetchData from "../../../hooks/useFetchData";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
+import SyncLoader from "react-spinners/SyncLoader";
 
 // eslint-disable-next-line react/prop-types
 const ViewDoctor = ({ docID }) => {
   const { data, loading, error } = useFetchData(`${BASE_URL}/doctors/${docID}`);
+  const [loader, setLoader] = useState(false);
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const approveDoctor = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoader(true);
+      // eslint-disable-next-line react/prop-types
+      const res = await fetch(`${BASE_URL}/doctors/approve/${data._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      if (!res.ok) {
+        throw Error(result.message);
+      }
+      setLoader(false);
+      setOpen(false);
+      toast.success(result.message);
+    } catch (err) {
+      toast.error(err.message);
+      setLoader(false);
+      setOpen(false);
+    }
+    navigate(0);
+  };
 
   return (
     <div className="py-5 mx-auto">
@@ -73,7 +121,10 @@ const ViewDoctor = ({ docID }) => {
                 <button className=" bg-red-600 text-white leading-9 rounded-lg pt-0.5 px-4 mt-[-.25rem] mb-5">
                   Reject
                 </button>
-                <button className=" bg-primaryColor text-white leading-9 rounded-lg pt-0.5 px-4 mt-[-.25rem] mb-5">
+                <button
+                  onClick={() => setOpen(true)}
+                  className=" bg-primaryColor text-white leading-9 rounded-lg pt-0.5 px-4 mt-[-.25rem] mb-5"
+                >
                   Approve
                 </button>
               </div>
@@ -81,6 +132,36 @@ const ViewDoctor = ({ docID }) => {
           </div>
         </div>
       )}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Confirm Approval"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Have all the details been clearly added?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <button
+            disabled={loader}
+            className=" text-primaryColor bg-white hover:bg-lighterColor text-[18px] leading-8 rounded-lg px-4 py-1"
+            onClick={approveDoctor}
+          >
+            {loader ? <SyncLoader size={10} color="#ffffff" /> : "Yes"}
+          </button>
+          <button
+            className=" bg-primaryColor text-white hover:bg-lighterColor hover:text-primaryColor text-[18px] leading-8 rounded-lg px-4 py-1"
+            onClick={handleClose}
+            autoFocus
+            disabled={loader}
+          >
+            No
+          </button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

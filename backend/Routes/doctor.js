@@ -6,6 +6,7 @@ import {
   deleteDoctor,
   getDoctorProfile,
   getDoctorsList,
+  approveDoctor,
 } from "../Controllers/doctorController.js";
 import { authenticate, restrict } from "../auth/verifyToken.js";
 
@@ -20,6 +21,7 @@ router.get("/", getAllDoctors);
 router.get("/list", getDoctorsList);
 router.get("/:id", getSingleDoctor);
 router.put("/:id", authenticate, restrict(["doctor"]), updateDoctor);
+router.put("/approve/:id", authenticate, restrict(["admin"]), approveDoctor);
 router.delete("/:id", authenticate, restrict(["doctor"]), deleteDoctor);
 router.get("/profile/me", authenticate, restrict(["doctor"]), getDoctorProfile);
 
