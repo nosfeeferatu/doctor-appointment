@@ -13,6 +13,7 @@ import Dashboard from "../Dashboard/doctor-account/Dashboard";
 import DoctorSignup from "../pages/DoctorSignup";
 import PatientSignup from "../pages/PatientSignup";
 import AdminDashboard from "../Dashboard/admin-account/AdminDashboard";
+import CheckoutSuccess from "../pages/CheckoutSuccess";
 
 const Routers = () => {
   return (
@@ -27,6 +28,7 @@ const Routers = () => {
       <Route path="/register/patient" element={<PatientSignup />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/checkout-success" element={<CheckoutSuccess />} />
       <Route
         path="/users/profile/me"
         element={
