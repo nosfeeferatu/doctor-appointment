@@ -70,11 +70,13 @@ export const getAllDoctors = async (req, res) => {
           { name: { $regex: query, $options: "i" } },
           { specialization: { $regex: query, $options: "i" } },
         ],
-      }).select("-password");
+      })
+        .select("-password")
+        .sort({ averageRating: -1 });
     } else {
-      doctors = await Doctor.find({ isApproved: "approved" }).select(
-        "-password"
-      );
+      doctors = await Doctor.find({ isApproved: "approved" })
+        .select("-password")
+        .sort({ averageRating: -1 });
     }
 
     res.status(200).json({
