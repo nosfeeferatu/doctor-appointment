@@ -186,20 +186,6 @@ const Profile = ({ doctorData }) => {
           />
         </div>
         <div className="mb-5">
-          <p className="form__label">Email*</p>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="Email"
-            className="form__input"
-            readOnly
-            aria-readonly
-            disabled="true"
-          />
-        </div>
-        <div className="mb-5">
           <p className="form__label">Phone*</p>
           <input
             type="number"
@@ -217,7 +203,7 @@ const Profile = ({ doctorData }) => {
             name="bio"
             value={formData.bio}
             onChange={handleInputChange}
-            placeholder="Bio Number"
+            placeholder="Bio"
             className="form__input"
             maxLength={100}
           />
@@ -240,17 +226,15 @@ const Profile = ({ doctorData }) => {
             </div>
             <div>
               <p className="form__label">Specialization*</p>
-              <select
+              <input
+                type="text"
                 name="specialization"
                 value={formData.specialization}
                 onChange={handleInputChange}
-                className="form__input py-3.5"
-              >
-                <option value="">Select</option>
-                <option value="Surgeon">Surgeon</option>
-                <option value="Neurologist">Neurologist</option>
-                <option value="Dermatologist">Dermatologist</option>
-              </select>
+                placeholder="Specialization"
+                className="form__input"
+                maxLength={1000}
+              />
             </div>
             <div>
               <p className="form__label">Ticket Price*</p>
@@ -366,6 +350,7 @@ const Profile = ({ doctorData }) => {
                     <input
                       type="text"
                       name="position"
+                      onChange={(e) => handleExperienceChange(e, index)}
                       value={item.position}
                       className="form__input"
                     />
@@ -374,6 +359,7 @@ const Profile = ({ doctorData }) => {
                     <p className="form__label">Hospital*</p>
                     <input
                       type="text"
+                      onChange={(e) => handleExperienceChange(e, index)}
                       name="hospital"
                       value={item.hospital}
                       className="form__input"
