@@ -9,7 +9,8 @@ import doctorRoute from "./Routes/doctor.js";
 import reviewRoute from "./Routes/review.js";
 import faqRoute from "./Routes/faq.js";
 import serviceRoute from "./Routes/services.js";
-import bookingRoute from './Routes/booking.js'
+import bookingRoute from "./Routes/booking.js";
+import messageRoute from "./Routes/messages.js";
 
 dotenv.config();
 
@@ -49,6 +50,7 @@ app.use("/api/v1/reviews", reviewRoute);
 app.use("/api/v1/services", serviceRoute);
 app.use("/api/v1/faq", faqRoute);
 app.use("/api/v1/bookings", bookingRoute);
+app.use("/api/v1/message", messageRoute);
 
 app.listen(port, () => {
   connectDB();
