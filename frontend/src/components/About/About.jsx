@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 import aboutImg from "../../assets/images/about.png";
-import aboutCardImg from "../../assets/images/about-card.png";
+// import aboutCardImg from "../../assets/images/about-card.png";
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -19,22 +19,22 @@ const About = () => {
               Proud to be one of the nations best
             </h2>
             <p className="text__para">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas
-              pariatur atque, corporis, doloremque, dolore consequatur doloribus
-              voluptatibus quas expedita neque vero magnam! Omnis consequuntur
-              iste numquam quo cupiditate sunt saepe eos impedit quos? Labore,
-              recusandae nobis! Neque repellendus nemo, itaque molestias soluta
-              omnis repudiandae culpa, sequi sed dolorem ad nostrum.
+              Medikare leads India in the doctor appoinment space, with our
+              unmatched database of doctors who are ready to help over 15+
+              locations all over our great nation, Medikare has ensured over the
+              years that all patients recieve utmost care regardless of the
+              ailments.
             </p>
 
             <p className="text__para mt-[30px]">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
-              reprehenderit dolorem dolore magnam ratione voluptatum!
+              This is the secret to our 100% Customer Satisfaction, with 15+
+              locations and 10 years of experience and a bit of creativity, what
+              else do we need to the nations best
             </p>
-
+            {/* 
             <Link to="/">
               <button className="btn">Learn More</button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
