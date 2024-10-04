@@ -85,9 +85,13 @@ const ViewDoctor = ({ docID }) => {
                     <h3 className="text-[22px] leading-9 font-bold text-headingColor mt-3">
                       {data.name}
                     </h3>
-                    <h3 className="text-[16px] leading-9 mt-[-1rem] mb-2 text-textColor">
+                    <a
+                      href={`mailto:${data.email}`}
+                      target="_blank"
+                      className="text-[16px] leading-9 mt-[-1rem] mb-2 text-textColor"
+                    >
                       {data.email}
-                    </h3>
+                    </a>
                     <div className="flex items-center gap-[6px]">
                       <span className="flex items-center gap-[6px] text-textColor text-[14px] leading-5 lg:text-[16px] lg:leading-6 font-semibold ">
                         <img src={starIcon} alt="" />

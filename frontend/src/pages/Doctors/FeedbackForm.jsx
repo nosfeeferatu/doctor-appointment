@@ -3,7 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import { BASE_URL, token } from "../../config";
 import { toast } from "react-toastify";
-import HashLoader from "react-spinners/HashLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 
 const FeedbackForm = () => {
   const [rating, setRating] = useState(0);
@@ -11,7 +11,6 @@ const FeedbackForm = () => {
   const [reviewText, setReviewText] = useState("");
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
-  console.log(token);
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
@@ -39,7 +38,6 @@ const FeedbackForm = () => {
       toast.success(result.message);
     } catch (err) {
       setLoading(false);
-      console.log(err.message);
       toast.error(err.message);
     }
   };
@@ -93,7 +91,7 @@ const FeedbackForm = () => {
         ></textarea>
       </div>
       <button className="btn" type="submit" onClick={handleSubmitReview}>
-        {loading ? <HashLoader size={25} color="#fff" /> : "Submit Feedback"}
+        {loading ? <SyncLoader size={25} color="#fff" /> : "Submit Feedback"}
       </button>
     </form>
   );

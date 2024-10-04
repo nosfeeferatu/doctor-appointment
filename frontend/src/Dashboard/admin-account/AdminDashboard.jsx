@@ -14,6 +14,7 @@ import { useContext } from "react";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import MessageData from "./Messages/MessageData";
 
 const AdminDashboard = () => {
   const [tab, setTab] = useState("doctors");
@@ -108,6 +109,17 @@ const AdminDashboard = () => {
                     FAQ
                   </button>
 
+                  <button
+                    onClick={() => setTab("messages")}
+                    className={`${
+                      tab === "messages"
+                        ? "bg-indigo-100 text-primaryColor"
+                        : "bg-transparent text-headingColor"
+                    } w-full btn mt-0 rounded-md`}
+                  >
+                    Messages
+                  </button>
+
                   <div className="mt-[100px] w-full">
                     <button
                       onClick={handleLogout}
@@ -126,6 +138,7 @@ const AdminDashboard = () => {
               {tab == "patients" && <PatientsData />}
               {tab == "services" && <ServicesData />}
               {tab == "faq" && <FAQData />}
+              {tab == "messages" && <MessageData />}
             </div>
           </div>
         )}
