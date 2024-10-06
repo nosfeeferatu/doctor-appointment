@@ -96,14 +96,14 @@ export const getMyAppointments = async (req, res) => {
     const bookings = await Booking.find({ user: req.userId });
 
     // Extract doctor IDs from appointments
-    const doctorIds = bookings.map((e) => {
-      e.doctor.id;
-    });
+    const doctorIds = bookings.map((e) => e.doctor.toString());
 
     // Retrieve doctors from IDs
     const doctors = await Doctor.find({ _id: { $in: doctorIds } }).select(
       "-password"
     );
+
+    console.log(doctorIds);
 
     res.status(200).json({
       success: true,
