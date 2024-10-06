@@ -27,8 +27,6 @@ const AdminDashboard = () => {
     error,
   } = useGetProfile(`${BASE_URL}/users/profile/me`);
 
-  console.log(userData, "userdata");
-
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/");

@@ -2,7 +2,7 @@ import { useRef, useContext } from "react";
 import logo from "../../assets/images/logo-1.png";
 import mobileLogo from "../../assets/images/mobile-logo.png";
 import logoText from "../../assets/images/medikare.png";
-import adminProfile from "../../assets/images/admin-profile.png";
+import profile from "../../assets/images/admin-profile.png";
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
@@ -96,7 +96,13 @@ const Header = () => {
                 >
                   <figure className="w-[35px] h-[35px] overflow-hidden rounded-full cursor-pointer">
                     <img
-                      src={role === "admin" ? adminProfile : user?.photo}
+                      src={
+                        role === "admin"
+                          ? logo
+                          : user?.photo
+                          ? user?.photo
+                          : profile
+                      }
                       className="w-full rounded-full"
                       alt=""
                     />

@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section>
       <div className="container">
-        <div className="flex justify-between gap-[50px] lg:gap-[130px] flex-col-reverse lg:flex-row">
+        <div className="flex justify-between items-center gap-[50px] lg:gap-[130px] flex-col-reverse lg:flex-row">
           {/* ABOUT IMG */}
           <div className="relative lg:w-1/2 z-10 order-2 lg:order-1">
             <img src={aboutImg} alt="" />

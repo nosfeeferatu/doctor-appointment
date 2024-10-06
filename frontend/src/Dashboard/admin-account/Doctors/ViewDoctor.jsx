@@ -120,14 +120,14 @@ const ViewDoctor = ({ docID }) => {
               </div>
             </div>
 
-            {data.isApproved === "pending" && (
+            {data.isApproved === "pending" && data.deletedAt === null && (
               <div className="flex gap-2 mt-8">
-                <button className=" bg-red-600 text-white leading-9 rounded-lg pt-0.5 px-4 mt-[-.25rem] mb-5">
+                {/* <button className=" bg-red-600 text-white leading-9 rounded-lg pt-0.5 px-4 mt-[-.25rem] mb-5">
                   Reject
-                </button>
+                </button> */}
                 <button
                   onClick={() => setOpen(true)}
-                  className=" bg-primaryColor text-white leading-9 rounded-lg pt-0.5 px-4 mt-[-.25rem] mb-5"
+                  className="btn bg-primaryColor text-white leading-9 rounded-lg py-1  mt-[-.25rem]"
                 >
                   Approve
                 </button>
@@ -150,19 +150,19 @@ const ViewDoctor = ({ docID }) => {
         </DialogContent>
         <DialogActions>
           <button
-            disabled={loader}
-            className=" text-primaryColor bg-white hover:bg-lighterColor text-[18px] leading-8 rounded-lg px-4 py-1"
-            onClick={approveDoctor}
-          >
-            {loader ? <SyncLoader size={10} color="#ffffff" /> : "Yes"}
-          </button>
-          <button
-            className=" bg-primaryColor text-white hover:bg-lighterColor hover:text-primaryColor text-[18px] leading-8 rounded-lg px-4 py-1"
             onClick={handleClose}
+            className=" text-primaryColor bg-white hover:bg-lighterColor text-[18px] leading-8 rounded-lg px-4 py-1"
             autoFocus
             disabled={loader}
           >
             No
+          </button>
+          <button
+            className=" bg-primaryColor text-white hover:bg-lighterColor hover:text-primaryColor text-[18px] leading-8 rounded-lg px-4 py-1"
+            disabled={loader}
+            onClick={approveDoctor}
+          >
+            {loader ? <SyncLoader size={10} color="#ffffff" /> : "Yes"}
           </button>
         </DialogActions>
       </Dialog>

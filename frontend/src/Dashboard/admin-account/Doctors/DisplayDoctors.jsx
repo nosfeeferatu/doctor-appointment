@@ -50,21 +50,39 @@ const DisplayDoctors = ({ setView, setDocID }) => {
     },
     {
       field: "isApproved",
-      headerName: "Approval Status",
+      headerName: "Status",
       renderCell: ({ row }) => (
         <p
           className="inline-block rounded leading-9 px-2 capitalize font-semibold text-[#334155]"
           style={
-            row.isApproved === "approved"
-              ? { background: "#22c55e" }
-              : { background: "#FEB60D" }
+            row.deletedAt === null
+              ? row.isApproved === "approved"
+                ? { background: "#22c55e" }
+                : { background: "#FEB60D" }
+              : { background: "#dc2626", color: "#F2F0EF" }
           }
         >
-          {row.isApproved}
+          {row.deletedAt === null ? row.isApproved : "Account Deleted"}
         </p>
       ),
       flex: 1,
     },
+    // {
+    //   field: "deletedAt",
+    //   headerName: "Active",
+    //   renderCell: ({ row }) => (
+    //     <p
+    //       className="inline-block rounded leading-9 px-2 capitalize font-semibold text-[#334155]"
+    //       style={
+    //         row.deletedAt === null
+    //           ? {}
+    //           : { background: "#dc2626", color: "#F2F0EF" }
+    //       }
+    //     >
+    //       {row.deletedAt === null ? "Active" : "Deleted"}
+    //     </p>
+    //   ),
+    // },
     {
       headerName: "Actions",
       renderCell: ({ row }) => (

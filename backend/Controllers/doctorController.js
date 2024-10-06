@@ -27,11 +27,16 @@ export const deleteDoctor = async (req, res) => {
   const id = req.params.id;
 
   try {
-    await Doctor.findByIdAndDelete(id);
+    const deletedDoctor = await Doctor.findByIdAndUpdate(
+      id,
+      { $set: { deletedAt: new Date() } },
+      { new: true }
+    ).select("-password");
 
     res.status(200).json({
       success: true,
       message: "Doctor deleted successfully",
+      data: deleteDoctor,
     });
   } catch (err) {
     res
@@ -66,6 +71,7 @@ export const getAllDoctors = async (req, res) => {
     if (query) {
       doctors = await Doctor.find({
         isApproved: "approved",
+        deletedAt: null,
         $or: [
           { name: { $regex: query, $options: "i" } },
           { specialization: { $regex: query, $options: "i" } },
@@ -74,7 +80,7 @@ export const getAllDoctors = async (req, res) => {
         .select("-password")
         .sort({ averageRating: -1 });
     } else {
-      doctors = await Doctor.find({ isApproved: "approved" })
+      doctors = await Doctor.find({ isApproved: "approved", deletedAt: null })
         .select("-password")
         .sort({ averageRating: -1 });
     }
@@ -118,16 +124,7 @@ export const getDoctorsList = async (req, res) => {
     const { query } = req.query;
     let doctors;
 
-    if (query) {
-      doctors = await Doctor.find({
-        $or: [
-          { name: { $regex: query, $options: "i" } },
-          { specialization: { $regex: query, $options: "i" } },
-        ],
-      }).select("-password");
-    } else {
-      doctors = await Doctor.find().select("-password");
-    }
+    doctors = await Doctor.find().select("-password");
 
     res.status(200).json({
       success: true,

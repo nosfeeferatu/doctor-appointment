@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL, token } from "../../config";
+import { toast } from "react-toastify";
 
 // eslint-disable-next-line react/prop-types
-const Tabs = ({ tab, setTab }) => {
+const Tabs = ({ tab, setTab, data }) => {
   const { dispatch } = useContext(authContext);
   const navigate = useNavigate();
 
@@ -12,6 +14,30 @@ const Tabs = ({ tab, setTab }) => {
     dispatch({ type: "LOGOUT" });
     navigate("/");
   };
+
+  const handleDelete = async () => {
+    try {
+      // eslint-disable-next-line react/prop-types
+      const res = await fetch(`${BASE_URL}/doctors/${data._id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const result = await res.json();
+      if (!res.ok) {
+        throw Error(result.message);
+      }
+      toast.success(result.message);
+      dispatch({ type: "LOGOUT" });
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div>
       <span className="lg:hidden">
@@ -58,7 +84,10 @@ const Tabs = ({ tab, setTab }) => {
           >
             Log Out
           </button>
-          <button className="w-full bg-red-600 text-white mt-4 p-3 text-[16px] leading-7 rounded-md">
+          <button
+            onClick={handleDelete}
+            className="w-full bg-red-600 text-white mt-4 p-3 text-[16px] leading-7 rounded-md"
+          >
             Delete Account
           </button>
         </div>

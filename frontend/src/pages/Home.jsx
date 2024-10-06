@@ -104,13 +104,6 @@ const Home = () => {
                 Patients leave healthy with the care from our experts ranging
                 from dermatology to surgery
               </p>
-
-              <Link
-                to="/doctors"
-                className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-              >
-                <BsArrowRight className="group-hover:text-white w-6 h-5" />
-              </Link>
             </div>
           </div>
           <div className="py-[30px] px-5">
@@ -125,13 +118,6 @@ const Home = () => {
                 World-class care for everyone. Our health system offers
                 unmatched, expert health care. From the lab to the clinic
               </p>
-
-              <Link
-                to="/doctors"
-                className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-              >
-                <BsArrowRight className="group-hover:text-white w-6 h-5" />
-              </Link>
             </div>
           </div>
 
@@ -148,13 +134,6 @@ const Home = () => {
                 best doctor for you with our system, it will never be easier
                 than this.
               </p>
-
-              <Link
-                to="/doctors"
-                className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-              >
-                <BsArrowRight className="group-hover:text-white w-6 h-5" />
-              </Link>
             </div>
           </div>
         </div>

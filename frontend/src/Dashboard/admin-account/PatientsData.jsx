@@ -35,12 +35,6 @@ const PatientsData = () => {
       flex: 1,
     },
     {
-      field: "bloodType",
-      headerName: "Blood Type",
-      renderCell: ({ row }) => <p>{row.bloodType}</p>,
-      flex: 1,
-    },
-    {
       headerName: "Actions",
       renderCell: ({ row }) => (
         <div className=" p-4 rounded-full text-[18px] cursor-pointer">
