@@ -27,23 +27,27 @@ const Home = () => {
             <div>
               <div className="lg:w-[570px]">
                 <h1 className="text-[36px] leading-[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]">
-                  We help patients live a healthy, longer life
+                  Healthcare, Streamlined for you
                 </h1>
 
                 <p className="text_para pt-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates libero sapiente repellendus ut, aliquam expedita
-                  magni laboriosam praesentium quas est non similique, nulla
-                  eveniet excepturi? Voluptatibus numquam et veritatis est.
+                  MediKare allows you to book appointments in real time in just
+                  a few taps, whether it is scheduling routine check-ups or
+                  seeking specialist care.
+                  <br />
+                  Medikare is the smarter, faster way to manage your health, all
+                  in one place
                 </p>
 
-                <button className="btn">Request an Appointment</button>
+                <Link to="/doctors">
+                  <button className="btn">Request an Appointment</button>
+                </Link>
 
                 {/* Hero Counter */}
                 <div className="mt-[30px] lg:mt-[70px] flex flex-col md:flex-row lg:items-center gap-5 lg:gap-[30px]">
                   <div>
                     <h2 className="text-[36px] leading-[56px] lg:text-[44px] lg:leading-[54px] font-[700] text-headingColor">
-                      30+
+                      10+
                     </h2>
                     <span className="w-[100px] h-2 bg-lighterColor rounded-full block mt-[-8px]"></span>
                     <p className="text__para mt-[8px]">Years of Experience</p>
@@ -93,19 +97,13 @@ const Home = () => {
             </div>
             <div className="mt-[30px]">
               <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
-                Find a Location
+                Get Best Treatments
               </h2>
               <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 ">
-                World-class care for every one. Our health system offers
-                unmatched, expert health care. From the lab to the clinic
+                Medikare has just the best doctors for any treatments you need.
+                Patients leave healthy with the care from our experts ranging
+                from dermatology to surgery
               </p>
-
-              <Link
-                to="/doctors"
-                className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-              >
-                <BsArrowRight className="group-hover:text-white w-6 h-5" />
-              </Link>
             </div>
           </div>
           <div className="py-[30px] px-5">
@@ -114,19 +112,12 @@ const Home = () => {
             </div>
             <div className="mt-[30px]">
               <h2 className="text-[26px] leading-9 text-headingColor font-[7]">
-                Find a Doctor
+                Find your Doctor
               </h2>
               <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 ">
                 World-class care for everyone. Our health system offers
                 unmatched, expert health care. From the lab to the clinic
               </p>
-
-              <Link
-                to="/doctors"
-                className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-              >
-                <BsArrowRight className="group-hover:text-white w-6 h-5" />
-              </Link>
             </div>
           </div>
 
@@ -139,16 +130,10 @@ const Home = () => {
                 Book Appointment
               </h2>
               <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 ">
-                World-class care for everyone. Our health system offers
-                unmatched, expert health care. From the lab to the clinic
+                Booking appointments with Medikare is just a few taps, find the
+                best doctor for you with our system, it will never be easier
+                than this.
               </p>
-
-              <Link
-                to="/doctors"
-                className="w-[44px] h-[44px] rounded-full border border-solid border-[#181a1e] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-              >
-                <BsArrowRight className="group-hover:text-white w-6 h-5" />
-              </Link>
             </div>
           </div>
         </div>
@@ -166,8 +151,8 @@ const Home = () => {
               Our medical services
             </h2>
             <p className="text__para text-center">
-              World-class care for everyone. Our health systems offers
-              unmatched, expert health care.
+              World Class care for all, these are the services we provide
+              especially
             </p>
           </div>
 
@@ -197,9 +182,6 @@ const Home = () => {
                   online scheduling tool to select an apponintment time.
                 </li>
               </ul>
-              <Link to="/">
-                <button className="btn">Learn More</button>
-              </Link>
             </div>
             <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
               <img src={featureImg} alt="" className="w-3/4" />
@@ -229,10 +211,10 @@ const Home = () => {
 
       {/* Faq Section Start*/}
       <section>
-        <div className="container">
-          <div className="flex justify-between gap-[50px] xl:gap-0">
+        <div className="container mt-5">
+          <div className="flex justify-between gap-[50px] xl:gap-8">
             <div className="w-1/2 hidden relative mx-auto md:block">
-              <img src={faqImg} alt="" className="sticky top-24" />
+              <img src={faqImg} alt="" className="sticky top-28" />
             </div>
 
             <div className="w-full md:w-1/2">
@@ -252,10 +234,6 @@ const Home = () => {
             <h2 className="heading text-center text-[50px]">
               What our patients say
             </h2>
-            <p className="text__para text-center">
-              World-class care for everyone. Our health systems offers
-              unmatched, expert health care.
-            </p>
           </div>
 
           <Testimonial />

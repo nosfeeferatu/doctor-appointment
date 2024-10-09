@@ -1,25 +1,25 @@
+import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import useFetchData from "../../hooks/useFetchData";
-import { BASE_URL } from "../../config";
-import Loading from "../../components/Loader/Loading";
-import Error from "../../components/Error/Error";
+import useFetchData from "../../../hooks/useFetchData";
+import { BASE_URL } from "../../../config";
+import Loading from "../../../components/Loader/Loading";
+import Error from "../../../components/Error/Error";
 import { AiOutlineEye } from "react-icons/ai";
 
-const PatientsData = () => {
-  const { data: users, loading, error } = useFetchData(`${BASE_URL}/users`);
-
+// eslint-disable-next-line react/prop-types
+const Messages = ({ setView, setMessageID }) => {
+  const {
+    data: messages,
+    loading,
+    error,
+  } = useFetchData(`${BASE_URL}/message`);
+  console.log(messages);
   const columns = [
     {
       field: "id",
       headerName: "ID",
       renderCell: (index) =>
         index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
-    },
-    {
-      field: "name",
-      headerName: "Name",
-      renderCell: ({ row }) => <p className="capitalize">{row.name}</p>,
-      flex: 1,
     },
     {
       field: "email",
@@ -35,27 +35,35 @@ const PatientsData = () => {
       flex: 1,
     },
     {
+      field: "subject",
+      headerName: "Subject",
+      renderCell: ({ row }) => <p>{row.subject}</p>,
+      flex: 2,
+    },
+    {
       headerName: "Actions",
       renderCell: ({ row }) => (
-        <div className=" p-4 rounded-full text-[18px] cursor-pointer">
+        <button
+          onClick={() => {
+            setView(true);
+            setMessageID(row._id);
+          }}
+          className=" p-4 rounded-full text-[18px] cursor-pointer"
+        >
           <AiOutlineEye />
-        </div>
+        </button>
       ),
     },
   ];
-
   return (
     <div>
-      <h2 className="text-headingColor font-bold text-[24px] leading-9 mb-5">
-        Patient Data
-      </h2>
       {loading && <Loading />}
       {error && <Error errMessage={error} />}
       {!loading && !error && (
         <DataGrid
           autoHeight
           columns={columns}
-          rows={users}
+          rows={messages}
           getRowId={(row) => row._id}
           sx={{ "--DataGrid-overlayHeight": "300px", background: "" }}
         />
@@ -64,4 +72,4 @@ const PatientsData = () => {
   );
 };
 
-export default PatientsData;
+export default Messages;

@@ -21,8 +21,6 @@ const MyAccount = () => {
     error,
   } = useGetProfile(`${BASE_URL}/users/profile/me`);
 
-  console.log(userData, "userdata");
-
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
@@ -55,7 +53,7 @@ const MyAccount = () => {
                   {userData.email}
                 </p>
                 <p className="text-textColor text-[15px] leading-6 font-medium">
-                  Blood Type:{" "}
+                  Blood Type:{!userData.bloodType && " Not added"}
                   <span className="ml-2 text-headingColor text-[22px] leading-8">
                     {userData.bloodType}
                   </span>

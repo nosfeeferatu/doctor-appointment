@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const ServiceCard = ({ item, index }) => {
-  // eslint-disable-next-line react/prop-types
   const { title, description } = item;
   return (
     <div className="bg-gradient-to-r from-[#00327E] to-[#609BF3] p-1 text-center">
