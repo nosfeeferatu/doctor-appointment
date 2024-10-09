@@ -53,7 +53,7 @@ const MyAccount = () => {
                   {userData.email}
                 </p>
                 <p className="text-textColor text-[15px] leading-6 font-medium">
-                  Blood Type:{" "}
+                  Blood Type:{!userData.bloodType && " Not added"}
                   <span className="ml-2 text-headingColor text-[22px] leading-8">
                     {userData.bloodType}
                   </span>
