@@ -98,7 +98,7 @@ const Footer = () => {
               ))}
             </div>
             <p className="text-[14px] leading-5 font-[400] text-black mt-4">
-              Copyright © {year} <br></br>developed by 3 blokes all rights
+              Copyright © {year} <br></br>developed by 3Bloke Technologies all rights
               reserved
             </p>
           </div>
