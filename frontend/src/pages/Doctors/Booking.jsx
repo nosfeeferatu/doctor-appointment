@@ -17,12 +17,6 @@ const Booking = () => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [dateStatus, setDateStatus] = useState("");
 
-  console.log(bookingData);
-
-  const handleInputChange = (e) => {
-    setBookingData({ ...bookingData, [e.target.name]: e.target.value });
-  };
-
   const handleDate = (date) => {
     setDateStatus("");
     setBookingData({ ...bookingData, appointmentDate: date });
@@ -34,6 +28,8 @@ const Booking = () => {
     loading,
     error,
   } = useFetchData(`${BASE_URL}/doctors/${id}`);
+
+  console.log(doctor);
 
   const disabledDate = (current) => {
     // Can not select days before today and today

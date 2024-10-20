@@ -50,6 +50,9 @@ export const getCheckoutSession = async (req, res) => {
     await Doctor.findByIdAndUpdate(doctor._id, {
       $push: { appointments: savedBooking._id },
     });
+    await User.findByIdAndUpdate(user._id, {
+      $push: { appointments: savedBooking._id },
+    });
 
     res
       .status(200)
@@ -60,5 +63,16 @@ export const getCheckoutSession = async (req, res) => {
     res
       .status(500)
       .json({ success: false, message: "Error creating checkout session" });
+  }
+};
+
+export const getAllBookings = async (req, res) => {
+  try {
+    const bookings = await Booking.find({});
+    res
+      .status(200)
+      .json({ success: true, message: "Successful", data: bookings });
+  } catch (err) {
+    res.status(404).json({ success: false, message: "Not found" });
   }
 };
