@@ -3,6 +3,7 @@
 import { toast } from "react-toastify";
 import convertTime from "../../utils/convertTime";
 import { BASE_URL, token, role } from "./../../config";
+import { Link } from "react-router-dom";
 
 const SidePanel = ({ doctorID, ticketPrice, timeSlots }) => {
   const bookingHandler = async () => {
@@ -34,7 +35,7 @@ const SidePanel = ({ doctorID, ticketPrice, timeSlots }) => {
   return (
     <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
       <div className="flex items-center justify-between">
-        <p className="text__para mt-0 font-semibold">Ticket Price</p>
+        <p className="text__para mt-0 font-semibold">Booking Price</p>
         <span className="text-[16px] leading-7 lg:text-[22px] lg-leading-8 text-headingColor font-bold">
           RS {ticketPrice}
         </span>
@@ -59,9 +60,14 @@ const SidePanel = ({ doctorID, ticketPrice, timeSlots }) => {
         </ul>
       </div>
       {role == "patient" && (
-        <button onClick={bookingHandler} className="btn px-2 w-full rounded-md">
-          Book Appointment
-        </button>
+        <Link to={`/doctors/${doctorID}/booking`}>
+          <button
+            // onClick={bookingHandler}
+            className="btn px-2 w-full rounded-md"
+          >
+            Book Appointment
+          </button>
+        </Link>
       )}
     </div>
   );

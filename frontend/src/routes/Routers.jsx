@@ -14,6 +14,7 @@ import DoctorSignup from "../pages/DoctorSignup";
 import PatientSignup from "../pages/PatientSignup";
 import AdminDashboard from "../Dashboard/admin-account/AdminDashboard";
 import CheckoutSuccess from "../pages/CheckoutSuccess";
+import Booking from "../pages/Doctors/Booking";
 
 const Routers = () => {
   return (
@@ -29,6 +30,7 @@ const Routers = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Services />} />
       <Route path="/checkout-success" element={<CheckoutSuccess />} />
+      <Route path="/doctors/:id/booking" element={<Booking />} />
       <Route
         path="/users/profile/me"
         element={

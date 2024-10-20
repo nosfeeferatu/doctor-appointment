@@ -4,6 +4,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import uploadImageToCloudinary from "./../../utils/uploadCloudinary";
 import { BASE_URL, token } from "./../../config";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Profile = ({ doctorData }) => {
@@ -21,6 +22,8 @@ const Profile = ({ doctorData }) => {
     timeSlots: [],
     photo: null,
   });
+
+  const navigate = useNavigate();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -74,6 +77,7 @@ const Profile = ({ doctorData }) => {
     } catch (err) {
       toast.error(err.message);
     }
+    navigate(0);
   };
 
   // reusable function for adding item
@@ -115,7 +119,7 @@ const Profile = ({ doctorData }) => {
       startingDate: "",
       endingDate: "",
       degree: "PHD",
-      university: "DHaka Medical College",
+      university: "Bangalore University",
     });
   };
 
@@ -135,7 +139,7 @@ const Profile = ({ doctorData }) => {
       startingDate: "",
       endingDate: "",
       position: "Senior Surgeon",
-      hospital: "Dhaka Medical",
+      hospital: "Bangalore Hospital",
     });
   };
 
@@ -154,7 +158,7 @@ const Profile = ({ doctorData }) => {
     addItem("timeSlots", {
       day: "Sunday",
       startingTime: "10:00",
-      endingTime: "4:30",
+      endingTime: "16:30",
     });
   };
 
@@ -237,7 +241,7 @@ const Profile = ({ doctorData }) => {
               />
             </div>
             <div>
-              <p className="form__label">Ticket Price*</p>
+              <p className="form__label">Booking Price*</p>
               <input
                 type="number"
                 placeholder="100"

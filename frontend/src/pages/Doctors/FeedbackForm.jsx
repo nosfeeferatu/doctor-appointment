@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL, token } from "../../config";
 import { toast } from "react-toastify";
 import SyncLoader from "react-spinners/SyncLoader";
@@ -11,6 +11,8 @@ const FeedbackForm = () => {
   const [reviewText, setReviewText] = useState("");
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
@@ -40,6 +42,7 @@ const FeedbackForm = () => {
       setLoading(false);
       toast.error(err.message);
     }
+    navigate(0);
   };
 
   return (
