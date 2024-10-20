@@ -5,6 +5,7 @@ import Stripe from "stripe";
 
 export const getCheckoutSession = async (req, res) => {
   try {
+    const appointmentDetails = req.body;
     // Get Currently Booked Doctor
     const doctor = await Doctor.findById(req.params.doctorId);
     const user = await User.findById(req.userId);
@@ -22,7 +23,7 @@ export const getCheckoutSession = async (req, res) => {
       line_items: [
         {
           price_data: {
-            currency: "usd",
+            currency: "inr",
             unit_amount: doctor.ticketPrice * 100,
             product_data: {
               name: doctor.name,
@@ -39,6 +40,8 @@ export const getCheckoutSession = async (req, res) => {
     const booking = new Booking({
       doctor: doctor._id,
       user: user._id,
+      appointmentDate: appointmentDetails.appointmentDate,
+      reason: appointmentDetails.reason,
       ticketPrice: doctor.ticketPrice,
       session: session.id,
     });

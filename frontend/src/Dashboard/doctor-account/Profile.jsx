@@ -159,6 +159,7 @@ const Profile = ({ doctorData }) => {
       day: "Sunday",
       startingTime: "10:00",
       endingTime: "16:30",
+      noOfSlots: 2,
     });
   };
 
@@ -220,7 +221,7 @@ const Profile = ({ doctorData }) => {
                 name="gender"
                 value={formData.gender}
                 onChange={handleInputChange}
-                className="form__input py-3.5"
+                className="form__input py-4"
               >
                 <option value="">Select</option>
                 <option value="male">Male</option>
@@ -399,7 +400,7 @@ const Profile = ({ doctorData }) => {
                     <select
                       name="day"
                       value={item.day}
-                      className="form__input py-3.5"
+                      className="form__input py-4"
                       onChange={(e) => handleTimeSlotChange(e, index)}
                     >
                       <option value="">Select</option>
@@ -432,10 +433,20 @@ const Profile = ({ doctorData }) => {
                       onChange={(e) => handleTimeSlotChange(e, index)}
                     />
                   </div>
+                  <div>
+                    <p className="form__label">No. Of Slots*</p>
+                    <input
+                      type="number"
+                      name="noOfSlots"
+                      value={item.noOfSlots}
+                      className="form__input"
+                      onChange={(e) => handleTimeSlotChange(e, index)}
+                    />
+                  </div>
                   <div className="flex items-center">
                     <button
                       onClick={(e) => deleteTimeSlot(e, index)}
-                      className="bg-red-600 p-2 rounded-full text-white text-[18px] mt-6 cursor-pointer"
+                      className="bg-red-600 p-2 rounded-full text-white text-[18px] cursor-pointer"
                     >
                       <AiOutlineDelete />
                     </button>
