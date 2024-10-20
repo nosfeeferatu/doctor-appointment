@@ -139,7 +139,7 @@ const ViewDoctor = ({ docID }) => {
             <div className="flex items-center justify-between">
               <p className="text__para mt-0 font-semibold">Booking Price</p>
               <span className="text-[16px] leading-7 lg:text-[22px] lg-leading-8 text-headingColor font-bold">
-                RS {data?.ticketPrice}
+                ₹ {data?.ticketPrice}
               </span>
             </div>
 

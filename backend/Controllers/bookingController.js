@@ -46,7 +46,10 @@ export const getCheckoutSession = async (req, res) => {
       session: session.id,
     });
 
-    await booking.save();
+    const savedBooking = await booking.save();
+    await Doctor.findByIdAndUpdate(doctor._id, {
+      $push: { appointments: savedBooking._id },
+    });
 
     res
       .status(200)
