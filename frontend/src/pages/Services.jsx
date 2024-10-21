@@ -1,5 +1,3 @@
-import { services } from "../assets/data/services";
-import ServiceCard from "../components/Services/ServiceCard";
 import ServiceList from "../components/Services/ServiceList";
 
 const Services = () => {

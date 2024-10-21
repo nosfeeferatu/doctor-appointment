@@ -1,4 +1,3 @@
-import { doctors } from "../../assets/data/doctors";
 import DoctorCard from "../../components/Doctors/DoctorCard";
 import { BASE_URL } from "../../config";
 import useFetchData from "../../hooks/useFetchData";
@@ -11,7 +10,6 @@ const Doctors = () => {
   const [debounceQuery, setDebounceQuery] = useState("");
   const handleSearch = () => {
     setQuery(query.trim());
-    console.log("handle Search");
   };
 
   useEffect(() => {
