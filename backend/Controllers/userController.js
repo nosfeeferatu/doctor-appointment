@@ -93,22 +93,24 @@ export const getUserProfile = async (req, res) => {
 export const getMyAppointments = async (req, res) => {
   try {
     // Retrieve appointments for specific user
-    const bookings = await Booking.find({ user: req.userId });
-
-    // Extract doctor IDs from appointments
-    const doctorIds = bookings.map((e) => e.doctor.toString());
-
-    // Retrieve doctors from IDs
-    const doctors = await Doctor.find({ _id: { $in: doctorIds } }).select(
-      "-password"
+    const bookings = await Booking.find({ user: req.userId }).populate(
+      "doctor"
     );
 
-    console.log(doctorIds);
+    // Extract doctor IDs from appointments
+    // const doctorIds = bookings.map((e) => e.doctor.toString());
+
+    // Retrieve doctors from IDs
+    // const doctors = await Doctor.find({ _id: { $in: doctorIds } }).select(
+    //   "-password"
+    // );
+
+    // console.log(doctorIds);
 
     res.status(200).json({
       success: true,
       message: "Appointments retrieved successfully",
-      data: doctors,
+      data: bookings,
     });
   } catch (err) {
     res.status(500).json({ success: false, message: "Something went wrong" });

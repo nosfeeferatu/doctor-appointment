@@ -27,21 +27,17 @@ const MyAccount = () => {
 
   return (
     <section>
-      <div className="max-w-[1170px] px-5 mx-auto">
+      <div className="max-w-[1300px] px-5 mx-auto">
         {loading && <Loading />}
 
         {error && <Error errMessage={error} />}
 
         {!loading && !error && (
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-4 gap-10">
             <div className="pb-[50px] px-[30px] rounded-md">
               <div className="flex items-center justify-center">
-                <figure className="w-[100px] h-[100px] rounded-full border-2 border-solid border-primaryColor">
-                  <img
-                    src={userData.photo}
-                    alt=""
-                    className="w-full h-full rounded-full"
-                  />
+                <figure className="w-[100px] h-[100px] overflow-hidden rounded-full border-2 border-solid border-primaryColor">
+                  <img src={userData.photo} alt="" className="w-full" />
                 </figure>
               </div>
 
@@ -72,7 +68,7 @@ const MyAccount = () => {
               </div>
             </div>
 
-            <div className="md:col-span-2 md:px=[30px]">
+            <div className="md:col-span-3 md:px=[30px]">
               <div>
                 <button
                   onClick={() => setTab("bookings")}

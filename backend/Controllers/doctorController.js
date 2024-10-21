@@ -51,6 +51,7 @@ export const getSingleDoctor = async (req, res) => {
   try {
     const doctor = await Doctor.findById(id)
       .populate("reviews")
+      .populate("appointments")
       .select("-password");
 
     res.status(200).json({

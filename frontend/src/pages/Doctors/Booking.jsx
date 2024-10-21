@@ -9,6 +9,12 @@ import { toast } from "react-toastify";
 import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 
+import { ConfigProvider } from "antd";
+import es from "antd/locale/hi_IN";
+import "dayjs/locale/es";
+import { formatDate } from "../../utils/formatDate";
+dayjs.locale("es");
+
 const Booking = () => {
   const [bookingData, setBookingData] = useState({
     appointmentDate: null,
@@ -16,11 +22,7 @@ const Booking = () => {
   });
   const [btnLoading, setBtnLoading] = useState(false);
   const [dateStatus, setDateStatus] = useState("");
-
-  const handleDate = (date) => {
-    setDateStatus("");
-    setBookingData({ ...bookingData, appointmentDate: date });
-  };
+  const [warningText, setWarningText] = useState("");
 
   const { id } = useParams();
   const {
@@ -29,34 +31,58 @@ const Booking = () => {
     error,
   } = useFetchData(`${BASE_URL}/doctors/${id}`);
 
+  // console.log(bookingData.appointmentDate);
   console.log(doctor);
+
+  const daysAsNum = (day) => {
+    switch (day) {
+      case "sunday":
+        return 0;
+      case "monday":
+        return 1;
+      case "tuesday":
+        return 2;
+      case "wednesday":
+        return 3;
+      case "thursday":
+        return 4;
+      case "friday":
+        return 5;
+      case "saturday":
+        return 6;
+    }
+  };
+
+  const handleDate = (date) => {
+    setDateStatus("");
+    setWarningText("");
+
+    let slotCount = 0;
+    doctor.appointments.map((appointment) => {
+      if (formatDate(appointment.appointmentDate) === formatDate(date)) {
+        slotCount++;
+      }
+    });
+    doctor.timeSlots.map((timeSlot) => {
+      if (daysAsNum(timeSlot.day) == date.$W) {
+        if (slotCount >= timeSlot.noOfSlots) {
+          setDateStatus("error");
+          setWarningText("Slot full. Please choose a different date.");
+        }
+      }
+    });
+    setBookingData({ ...bookingData, appointmentDate: date });
+  };
 
   const disabledDate = (current) => {
     // Can not select days before today and today
-    const daysAvailable = doctor.timeSlots.map(
-      (availableDay) => availableDay.day
+    const daysAvailable = doctor.timeSlots.map((availableDay) =>
+      daysAsNum(availableDay.day)
     );
-    const daysAsNum = daysAvailable.map((day) => {
-      switch (day) {
-        case "sunday":
-          return 0;
-        case "monday":
-          return 1;
-        case "tuesday":
-          return 2;
-        case "wednesday":
-          return 3;
-        case "thursday":
-          return 4;
-        case "friday":
-          return 5;
-        case "saturday":
-          return 6;
-      }
-    });
+
     return (
       (current && current < dayjs().endOf("day")) ||
-      (current.$W && !daysAsNum.includes(current.$W))
+      (current.$W && !daysAvailable.includes(current.$W))
     );
   };
 
@@ -129,16 +155,21 @@ const Booking = () => {
           <form className="py-4 md:py-0" onSubmit={(e) => e.preventDefault()}>
             <div className="mb-5">
               <div className="flex items-center gap-3">
-                <DatePicker
-                  value={bookingData.appointmentDate}
-                  onChange={handleDate}
-                  status={dateStatus}
-                  name="appointmentDate"
-                  className="w-1/2 px-4 py-3 border border-solid border-[#0066ff61] focus:outline-none focus:border-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer rounded-md"
-                  disabledDate={disabledDate}
-                />
-                {bookingData.appointmentDate && <p className="">Hello</p>}
-                {dateStatus == "error" && (
+                <ConfigProvider>
+                  <DatePicker
+                    value={bookingData.appointmentDate}
+                    onChange={handleDate}
+                    status={dateStatus}
+                    locale={es}
+                    name="appointmentDate"
+                    className="w-1/2 px-4 py-3 border border-solid border-[#0066ff61] focus:outline-none focus:border-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer rounded-md"
+                    disabledDate={disabledDate}
+                  />
+                </ConfigProvider>
+                {dateStatus == "error" && warningText && (
+                  <p className="">{warningText}</p>
+                )}
+                {dateStatus == "error" && !warningText && (
                   <p className="text-red-600">Select an appointment date</p>
                 )}
               </div>
@@ -163,7 +194,7 @@ const Booking = () => {
             <div className="mt-7">
               <button
                 onClick={
-                  bookingData.appointmentDate
+                  bookingData.appointmentDate && !warningText
                     ? bookingHandler
                     : () => setDateStatus("error")
                 }

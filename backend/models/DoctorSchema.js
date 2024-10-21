@@ -42,7 +42,7 @@ const DoctorSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
-    appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
+    appointments: [{ type: mongoose.Types.ObjectId, ref: "Booking" }],
   },
   { timestamps: true }
 );
