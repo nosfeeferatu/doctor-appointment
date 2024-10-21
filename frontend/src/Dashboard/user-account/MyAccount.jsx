@@ -87,7 +87,7 @@ const MyAccount = () => {
                     "bg-primaryColor text-white font-normal"
                   } p-2 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border border-solid border-primaryColor`}
                 >
-                  Profile Settings
+                  Edit Profile
                 </button>
               </div>
               {tab == "bookings" && <MyBookings />}

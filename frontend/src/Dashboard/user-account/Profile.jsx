@@ -13,8 +13,6 @@ const Profile = ({ user }) => {
   const [formData, setFormData] = useState(
     {
       name: "",
-      email: "",
-      password: "",
       photo: null,
       gender: "",
       role: "patient",
@@ -29,7 +27,6 @@ const Profile = ({ user }) => {
     () =>
       setFormData({
         name: user.name,
-        email: user.email,
         photo: user.photo,
         gender: user.gender,
         bloodType: user.bloodType,
@@ -93,20 +90,7 @@ const Profile = ({ user }) => {
           />
         </div>
 
-        <div className="mb-5">
-          <input
-            type="email"
-            placeholder="Enter your Email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61 focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer"
-            aria-readonly
-            readOnly
-          />
-        </div>
-
-        <div className="mb-5">
+        {/* <div className="mb-5">
           <input
             type="password"
             placeholder="Password"
@@ -115,7 +99,7 @@ const Profile = ({ user }) => {
             onChange={handleInputChange}
             className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61 focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer"
           />
-        </div>
+        </div> */}
 
         <div className="mb-5">
           <input
@@ -151,9 +135,9 @@ const Profile = ({ user }) => {
           {formData.photo && (
             <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center overflow-hidden">
               <img
-                src={formData.photo}
+                src={selectedFile ? selectedFile : formData.photo}
                 alt=""
-                className="w-full rounded-full"
+                className="w-full"
               />
             </figure>
           )}
@@ -180,7 +164,7 @@ const Profile = ({ user }) => {
           <button
             disabled={loading}
             type="submit"
-            className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3"
+            className=" bg-primaryColor text-white text-[18px] leading-[25px] rounded-lg px-8 py-3"
           >
             {loading ? (
               <SyncLoader size={10} color="#ffffff" />
