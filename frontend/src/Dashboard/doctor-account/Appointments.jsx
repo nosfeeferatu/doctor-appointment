@@ -2,64 +2,106 @@
 
 import React from 'react'
 import {formatDate} from "../../utils/formatDate.js"
+import { AiOutlineEye } from 'react-icons/ai';
+import Loading from '../../components/Loader/Loading.jsx';
+import Error from '../../components/Error/Error.jsx';
+import { DataGrid } from '@mui/x-data-grid';
+import useFetchData from '../../hooks/useFetchData.jsx';
+import { BASE_URL } from '../../config.js';
 
 
-const Appointments = ({ appointments }) => {
+const Appointments = () => {
+  const {
+    data: appointments,
+    loading,
+    error,
+  } = useFetchData(`${BASE_URL}/doctors/appointments/my-appointments`);
+
+  console.log(appointments);
+
+  const columns = [
+    {
+      field: "id",
+      headerName: "ID",
+      renderCell: (index) =>
+        index.api.getRowIndexRelativeToVisibleRows(index.row._id) + 1,
+    },
+    {
+      field: "user.name",
+      headerName: "User",
+      renderCell: ({ row }) => <p className="capitalize">{row.user.name}</p>,
+      flex: 1,
+    },
+
+    {
+      field: "appointmentDate",
+      headerName: "Date",
+      renderCell: ({ row }) => (
+        <p className="capitalize">{formatDate(row.appointmentDate)}</p>
+      ),
+      flex: 1,
+    },
+    {
+      field: "reason",
+      headerName: "Reason",
+      renderCell: ({ row }) => <p>{row.reason}</p>,
+      flex: 1.5,
+    },
+    // {
+    //   field: "status",
+    //   headerName: "Status",
+    //   renderCell: ({ row }) => (
+    //     <p
+    //       className="inline-block rounded leading-9 px-2 capitalize font-semibold text-[#334155]"
+    //       style={
+    //         row.deletedAt === null
+    //           ? row.isApproved === "approved"
+    //             ? { background: "#22c55e" }
+    //             : { background: "#FEB60D" }
+    //           : { background: "#dc2626", color: "#F2F0EF" }
+    //       }
+    //     >
+    //       {row.deletedAt === null ? row.isApproved : "Account Deleted"}
+    //     </p>
+    //   ),
+    //   flex: 1,
+    // },
+    // {
+    //   headerName: "Actions",
+    //   renderCell: ({ row }) => (
+    //     <button
+    //       // onClick={() => {
+    //       //   setView(true);
+    //       //   setDocID(row._id);
+    //       // }}
+    //       className=" p-4 rounded-full text-[18px] cursor-pointer"
+    //     >
+    //       <AiOutlineEye />
+    //     </button>
+    //   ),
+    // },
+  ];
+
   return (
-    <table className='w-full text-left text-sm text-gray-500'>
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-        <tr>
-          <th scope='col' className='px-6 py-3'>
-            Name
-          </th>
-          <th scope='col' className='px-6 py-3'>
-            Gender
-          </th>
-          <th scope='col' className='px-6 py-3'>
-            Payment
-          </th>
-          <th scope='col' className='px-6 py-3'>
-            Price
-          </th>
-          <th scope='col' className='px-6 py-3'>
-            Booked on
-          </th>
-        </tr>
-      </thead>
+    <div className="mt-5">
+      {loading && !error && <Loading />}
+      {error && !loading && <Error errMessage={error} />}
+      {!loading && !error && appointments.length > 0 && (
+        <DataGrid
+          autoHeight
+          columns={columns}
+          rows={appointments}
+          getRowId={(row) => row._id}
+          sx={{ "--DataGrid-overlayHeight": "300px", background: "" }}
+        />
+      )}
 
-      <tbody>
-        {appointments?.map(item=> (
-        <tr key={item._id}>          
-          <th scope='row' className='flex items-center px-6 py-4 text-gray-900 whitespace-nowrap'>
-            <img src={item.user.photo} className='w-10 h-10 rounded-full' alt=""/>
-            <div className="pl-3">
-              <div className='text-base font-semibold'>{item.user.name}</div>
-              <div className="text-normal text-gray-500">{item.user.email}</div>
-
-            </div>
-          </th>
-          <td className='px-6 py-4'>{item.user.gender}</td>
-          <td className='px-6 py-4'>
-            {item.isPaid && (
-              <div className='flex items-center'>
-              <div className='h-2.5 w-2.5 rounded-full bg-green-500 mr-2'></div>
-              Paid
-            </div>
-          )}
-            {!item.isPaid && (
-              <div className='flex items-center'>
-              <div className='h-2.5 w-2.5 rounded-full bg-red-500 mr-2'></div>
-              Unpaid
-            </div>
-          )}
-          
-          </td>
-          <td className='px-6 py-4'>{item.ticketPrice}</td>
-          <td className='px-6 py-4'>{formatDate(item.createdAt)}</td>
-
-        </tr>))}
-      </tbody>
-    </table>
+      {!loading && !error && appointments.length === 0 && (
+        <h2 className="mt-5 text-center leading-7 text-[20px] font-semibold text-primaryColor">
+          You do not have any bookings yet!
+        </h2>
+      )}
+    </div>
   )
 }
 

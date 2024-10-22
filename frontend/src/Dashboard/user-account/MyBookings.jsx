@@ -63,27 +63,27 @@ const MyBookings = () => {
     //   ),
     //   flex: 1,
     // },
-    {
-      headerName: "Actions",
-      renderCell: ({ row }) => (
-        <button
-          // onClick={() => {
-          //   setView(true);
-          //   setDocID(row._id);
-          // }}
-          className=" p-4 rounded-full text-[18px] cursor-pointer"
-        >
-          <AiOutlineEye />
-        </button>
-      ),
-    },
+    // {
+    //   headerName: "Actions",
+    //   renderCell: ({ row }) => (
+    //     <button
+    //       // onClick={() => {
+    //       //   setView(true);
+    //       //   setDocID(row._id);
+    //       // }}
+    //       className=" p-4 rounded-full text-[18px] cursor-pointer"
+    //     >
+    //       <AiOutlineEye />
+    //     </button>
+    //   ),
+    // },
   ];
 
   return (
     <div className="mt-5">
       {loading && !error && <Loading />}
       {error && !loading && <Error errMessage={error} />}
-      {!loading && !error && (
+      {!loading && !error && appointments.length>0  && (
         <DataGrid
           autoHeight
           columns={columns}
