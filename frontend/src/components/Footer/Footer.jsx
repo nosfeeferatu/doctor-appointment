@@ -86,7 +86,7 @@ const Footer = () => {
               <img src={logotext} alt="" width="100px" />
             </div>
 
-            <div className="flex justify-center items-center gap-3 mt-4 md:justify-normal">
+            {/* <div className="flex justify-center items-center gap-3 mt-4 md:justify-normal">
               {socialLinks.map((link, index) => (
                 <Link
                   to={link.path}
@@ -96,10 +96,10 @@ const Footer = () => {
                   {link.icon}
                 </Link>
               ))}
-            </div>
+            </div> */}
             <p className="text-[14px] leading-5 font-[400] text-black mt-4">
-              Copyright © {year} <br></br>developed by 3Bloke Technologies all rights
-              reserved
+              Copyright © {year} <br></br>developed by 3Bloke Technologies all
+              rights reserved
             </p>
           </div>
 
