@@ -74,7 +74,7 @@ const AdminDashboard = () => {
                     Doctors
                   </button>
 
-                  <button
+                  {/* <button
                     onClick={() => setTab("patients")}
                     className={`${
                       tab === "patients"
@@ -83,7 +83,7 @@ const AdminDashboard = () => {
                     } w-full btn mt-0 rounded-md`}
                   >
                     Patients
-                  </button>
+                  </button> */}
 
                   <button
                     onClick={() => setTab("services")}
@@ -133,7 +133,7 @@ const AdminDashboard = () => {
 
             <div className="lg:col-span-2 md:px=[30px]">
               {tab == "doctors" && <DoctorsData />}
-              {tab == "patients" && <PatientsData />}
+              {/* {tab == "patients" && <PatientsData />} */}
               {tab == "services" && <ServicesData />}
               {tab == "faq" && <FAQData />}
               {tab == "messages" && <MessageData />}

@@ -42,12 +42,11 @@ const Testimonial = () => {
                   <HiStar className="text-yellowColor w-[18px] h-5" />
                   <HiStar className="text-yellowColor w-[18px] h-5" />
                   <HiStar className="text-yellowColor w-[18px] h-5" />
-                  <HiStar className="text-yellowColor w-[18px] h-5" />
                 </div>
               </div>
             </div>
             <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
-              "Dr.Gavin is the best"
+              "Medikare offers some of the best doctors in the city."
             </p>
           </div>
         </SwiperSlide>
@@ -69,7 +68,7 @@ const Testimonial = () => {
               </div>
             </div>
             <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
-              "Enriching Liver inflammatory experience"
+              "Kind doctors, great services and just a nice experience."
             </p>
           </div>
         </SwiperSlide>
@@ -113,7 +112,7 @@ const Testimonial = () => {
               </div>
             </div>
             <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
-              "Dr.Banner is the best doctor"
+              "I want to thank Medikare for making my booking easier."
             </p>
           </div>
         </SwiperSlide>
@@ -126,7 +125,6 @@ const Testimonial = () => {
                   Dormammu
                 </h4>
                 <div className="flex items-center gap-[2px]">
-                  <HiStar className="text-yellowColor w-[18px] h-5" />
                   <HiStar className="text-yellowColor w-[18px] h-5" />
                   <HiStar className="text-yellowColor w-[18px] h-5" />
                   <HiStar className="text-yellowColor w-[18px] h-5" />

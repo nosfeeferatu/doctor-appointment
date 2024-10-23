@@ -75,12 +75,12 @@ const Booking = () => {
   };
 
   const disabledDate = (current) => {
-    // Can not select days before today and today
     const daysAvailable = doctor.timeSlots.map((availableDay) =>
       daysAsNum(availableDay.day)
     );
 
     return (
+      // Can not select days before today and today
       (current && current < dayjs().endOf("day")) ||
       (current.$W && !daysAvailable.includes(current.$W))
     );

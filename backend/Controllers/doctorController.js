@@ -36,7 +36,7 @@ export const deleteDoctor = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Doctor deleted successfully",
-      data: deleteDoctor,
+      data: deletedDoctor,
     });
   } catch (err) {
     res
@@ -125,7 +125,7 @@ export const getDoctorsList = async (req, res) => {
     const { query } = req.query;
     let doctors;
 
-    doctors = await Doctor.find().select("-password");
+    doctors = await Doctor.find().select("-password").sort({ updatedAt: -1 });
 
     res.status(200).json({
       success: true,
@@ -162,19 +162,9 @@ export const approveDoctor = async (req, res) => {
 export const getMyAppointments = async (req, res) => {
   try {
     // Retrieve appointments for specific user
-    const bookings = await Booking.find({ doctor: req.userId }).populate(
-      "user"
-    );
-
-    // Extract doctor IDs from appointments
-    // const doctorIds = bookings.map((e) => e.doctor.toString());
-
-    // Retrieve doctors from IDs
-    // const doctors = await Doctor.find({ _id: { $in: doctorIds } }).select(
-    //   "-password"
-    // );
-
-    // console.log(doctorIds);
+    const bookings = await Booking.find({ doctor: req.userId })
+      .populate("user")
+      .sort({ appointmentDate: -1 });
 
     res.status(200).json({
       success: true,

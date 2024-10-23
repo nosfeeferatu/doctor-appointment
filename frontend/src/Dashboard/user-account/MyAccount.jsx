@@ -62,9 +62,9 @@ const MyAccount = () => {
                 >
                   Log Out
                 </button>
-                <button className="w-full bg-red-600 text-white mt-4 p-3 text-[16px] leading-7 rounded-md">
+                {/* <button className="w-full bg-red-600 text-white mt-4 p-3 text-[16px] leading-7 rounded-md">
                   Delete Account
-                </button>
+                </button> */}
               </div>
             </div>
 

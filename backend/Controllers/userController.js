@@ -22,6 +22,26 @@ export const updateUser = async (req, res) => {
   }
 };
 
+export const updateUserPassword = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const updatedUserPassword = await User.findByIdAndUpdate(
+      id,
+      { $set: req.body },
+      { new: true }
+    ).select("-password");
+
+    res.status(200).json({
+      success: true,
+      message: "User updated successfully",
+      data: updatedUser,
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to update user" });
+  }
+};
+
 export const deleteUser = async (req, res) => {
   const id = req.params.id;
 
@@ -93,19 +113,9 @@ export const getUserProfile = async (req, res) => {
 export const getMyAppointments = async (req, res) => {
   try {
     // Retrieve appointments for specific user
-    const bookings = await Booking.find({ user: req.userId }).populate(
-      "doctor"
-    );
-
-    // Extract doctor IDs from appointments
-    // const doctorIds = bookings.map((e) => e.doctor.toString());
-
-    // Retrieve doctors from IDs
-    // const doctors = await Doctor.find({ _id: { $in: doctorIds } }).select(
-    //   "-password"
-    // );
-
-    // console.log(doctorIds);
+    const bookings = await Booking.find({ user: req.userId })
+      .populate("doctor")
+      .sort({ appointmentDate: -1 });
 
     res.status(200).json({
       success: true,
