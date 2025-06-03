@@ -1,7 +1,3 @@
-Certainly! Here's a comprehensive README for the [doctor-appointment](https://github.com/nosfeeferatu/doctor-appointment) project:
-
----
-
 # 🩺 Doctor Appointment System
 
 An online doctor appointment system developed using the MERN Stack, Tailwind CSS for styling, and Cloudinary for image storage.
