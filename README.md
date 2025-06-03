@@ -121,19 +121,6 @@ doctor-appointment/
 
 ---
 
-## 📸 Screenshots
-
-![Home Page](https://medikare.netlify.app/screenshot-home.png)
-*Home page showcasing available doctors.*
-
-![Appointment Booking](https://medikare.netlify.app/screenshot-booking.png)
-*Booking an appointment with a selected doctor.*
-
-![Doctor Dashboard](https://medikare.netlify.app/screenshot-dashboard.png)
-*Doctor's dashboard to manage appointments.*
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
